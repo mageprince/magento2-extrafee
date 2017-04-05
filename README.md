@@ -7,7 +7,7 @@ Installation instructions
 =========================
 
 * Copy the content of the repo to the Magento 2 root folder
-* Run command php bin/magento setup:static-content:deploy
+* Run command "php bin/magento setup:static-content:deploy"
 * Go to System->Extra Fee
 
 <img src="https://preview.ibb.co/fcK6fa/admin_Screenshot.png" alt="admin_Screenshot" border="0"/>
