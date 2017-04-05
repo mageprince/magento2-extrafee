@@ -10,12 +10,12 @@ Installation instructions
 * Run command php bin/magento setup:static-content:deploy
 * Go to System->Extra Fee
 
-<img src="https://github.com/prince108/magento2-extrafee/blob/master/adminScreenshot.png" width="800px" />
+<img src="https://preview.ibb.co/fcK6fa/admin_Screenshot.png" alt="admin_Screenshot" border="0"/>
 
 CART PAGE
 
-<img src="https://github.com/prince108/magento2-extrafee/blob/master/cartPage.png" width="800px" />
+<img src="https://preview.ibb.co/j0R8tv/cartPage.png" alt="cartPage" border="0"/>
 
 CHECKOUT PAGE
 
-<img src="https://github.com/prince108/magento2-extrafee/blob/master/checkoutPage.png?raw=true" width="800px" />
+<img src="https://preview.ibb.co/esZuYv/checkout_Page.png" alt="checkout_Page" border="0"/>
