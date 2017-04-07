@@ -7,8 +7,11 @@ Installation instructions
 =========================
 
 * Copy the content of the repo to the Magento 2 root folder
-* Run command "php bin/magento setup:static-content:deploy"
-* Go to System->Extra Fee
+* Run command:
+<b>php bin/magento setup:upgrade</b>
+* After that, if you website is in the Default or the Production mode, please type the command line to deploy the static content:
+<b>php bin/magento setup:static-content:deploy</b>
+ADMIN 
 
 <img src="https://preview.ibb.co/fcK6fa/admin_Screenshot.png" alt="admin_Screenshot" border="0"/>
 
