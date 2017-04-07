@@ -11,14 +11,15 @@ Installation instructions
 <b>php bin/magento setup:upgrade</b>
 * After that, if you website is in the Default or the Production mode, please type the command line to deploy the static content:
 <b>php bin/magento setup:static-content:deploy</b>
-ADMIN 
+
+<b>ADMIN</b> 
 
 <img src="https://preview.ibb.co/fcK6fa/admin_Screenshot.png" alt="admin_Screenshot" border="0"/>
 
-CART PAGE
+<b>CART PAGE</b>
 
 <img src="https://preview.ibb.co/j0R8tv/cartPage.png" alt="cartPage" border="0"/>
 
-CHECKOUT PAGE
+<b>CHECKOUT PAGE</b>
 
 <img src="https://preview.ibb.co/esZuYv/checkout_Page.png" alt="checkout_Page" border="0"/>
