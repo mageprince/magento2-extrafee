@@ -40,7 +40,7 @@ class Fee extends \Magento\Framework\View\Element\Template
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Tax\Model\Config $taxConfig,
-        \Prince\Extrafee\Helper $helper
+        \Prince\Extrafee\Helper $helper,
         array $data = []
     ) {
         $this->_config = $taxConfig;
