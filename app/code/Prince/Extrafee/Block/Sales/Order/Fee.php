@@ -32,6 +32,9 @@ class Fee extends \Magento\Framework\View\Element\Template
      * @var \Prince\Extrafee\Helper
      */
     protected $_helper;
+
+    private $extraFeeModel;
+
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param \Magento\Tax\Model\Config $taxConfig
@@ -40,11 +43,13 @@ class Fee extends \Magento\Framework\View\Element\Template
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Tax\Model\Config $taxConfig,
-        \Prince\Extrafee\Helper $helper,
+        \Prince\Extrafee\Helper\Data $helper,
+        \Prince\Extrafee\Model\Extrafee $extraFeeModel,
         array $data = []
     ) {
         $this->_config = $taxConfig;
         $this->_helper = $helper;
+        $this->extraFeeModel = $extraFeeModel;
         parent::__construct($context, $data);
     }
 
@@ -101,28 +106,37 @@ class Fee extends \Magento\Framework\View\Element\Template
      *
      * @return \Magento\Tax\Block\Sales\Order\Tax
      */
-     public function initTotals()
+    public function initTotals()
     {
-
         $parent = $this->getParentBlock();
         $this->_order = $parent->getOrder();
         $this->_source = $parent->getSource();
 
+        $orderId = $this->_order->getId();
         $store = $this->getStore();
 
-        $fee = new \Magento\Framework\DataObject(
-                [
-                    'code' => 'fee',
-                    'strong' => false,
-                    'value' => $this->_helper->getExtraFee(),
-                    'label' => $this->_helper->getTitle()
-                ]
-            );
+        $collection = $this->extraFeeModel->getCollection();
+        $collection->addFieldToFilter('order_id', $orderId);
+
+        if($collection->getSize()){
+
+            $extraFee = $collection->getFirstItem()->getFee();
+            
+            $fee = new \Magento\Framework\DataObject(
+                    [
+                        'code' => 'fee',
+                        'strong' => false,
+                        'value' => $extraFee,
+                        'label' => $this->_helper->getTitle()
+                    ]
+                );
 
             $parent->addTotal($fee, 'fee');
-            $parent->addTotal($fee, 'fee');
-            
-            return $this;
+            //$parent->addTotal($fee, 'fee');
+        
+        }
+
+        return $this;
     }
 
 }

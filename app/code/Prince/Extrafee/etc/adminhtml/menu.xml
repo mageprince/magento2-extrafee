@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Prince_Extrafee::top_level" title="Extra Fee" module="Prince_Extrafee" sortOrder="100" resource="Magento_Sales::sales" parent="Magento_Backend::system"/>
+        <add id="Prince_Extrafee::top_level" title="Extra Fee" module="Prince_Extrafee" sortOrder="100" resource="Magento_Sales::sales" parent="Magento_Sales::sales"/>
         <add id="Prince_Extrafee::extrafee" title="Extra Fee" module="Prince_Extrafee" sortOrder="100" parent="Prince_Extrafee::top_level" action="adminhtml/system_config/edit/section/customfee" resource="Magento_Sales::sales"/>
     </menu>
 </config>
