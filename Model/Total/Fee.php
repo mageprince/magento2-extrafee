@@ -34,8 +34,15 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
     ) {
         parent::collect($quote, $shippingAssignment, $total);
 
-        $exist_amount = 0;
+        $priceType = $this->_helper->getPriceType();
         $fee = $this->_helper->getExtraFee();
+
+        if ($priceType){
+            $subTotal = $quote->getSubtotal();
+            $fee = ($subTotal * $fee) / 100;
+        }
+
+        $exist_amount = 0;
         $balance = $fee - $exist_amount;
         $total->setBaseTotalAmount('fee', $balance);
         $total->setFee($balance);
@@ -70,20 +77,28 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
      */
     public function fetch(\Magento\Quote\Model\Quote $quote, \Magento\Quote\Model\Quote\Address\Total $total)
     {
+        $priceType = $this->_helper->getPriceType();
+        $fee = $this->_helper->getExtraFee();
+
+        if ($priceType){
+            $subTotal = $quote->getSubtotal();
+            $fee = ($subTotal * $fee) / 100;
+        }
+
         return [
             'code' => 'fee',
-            'title' => $this->_helper->getTitle(),
-            'value' => $this->_helper->getExtraFee()
+            'title' => __($this->_helper->getTitle()),
+            'value' => $fee
         ];
     }
 
     /**
-     * Get Subtotal label
+     * Get label
      *
      * @return \Magento\Framework\Phrase
      */
     public function getLabel()
     {
-        return $this->_helper->getTitle();
+        return __($this->_helper->getTitle());
     }
 }
