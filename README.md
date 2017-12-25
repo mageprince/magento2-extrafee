@@ -12,9 +12,9 @@ Installation instructions
 
 2. Enter following commands to install module:
 
-    `composer config repositories.mageprince git https://github.com/mageprince/magento2-extrafee.git`</br>
-    `composer require mageprince/magento2-extrafee:dev-master` </br>
-    `php bin/magento setup:upgrade`
+    1. `composer config repositories.mageprince git https://github.com/mageprince/magento2-extrafee.git`</br>
+    2. `composer require mageprince/magento2-extrafee:dev-master` </br>
+    3. `php bin/magento setup:upgrade`
     
 
 <b>Install Manually:</b>
@@ -34,8 +34,8 @@ Installation instructions
 
 <b>Cart Page</b>
 
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/cartPage.png" alt="cartPage" border="0"/>
+<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/cartpage.png" alt="cartPage" border="0"/>
 
 <b>Checkout Page</b>
 
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/checkout_Page.png" alt="checkout_Page" border="0"/>
+<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/checkoutpage.png" alt="checkout_Page" border="0"/>
