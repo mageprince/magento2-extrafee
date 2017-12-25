@@ -13,14 +13,9 @@ Installation instructions
 2. Enter following commands to install module:
 
     `composer config repositories.mageprince git https://github.com/mageprince/magento2-extrafee.git`</br>
-    `composer require mageprince/magento2-extrafee:dev-master`
-
-   Wait while dependencies are updated.
-
-3. Enter following commands to enable module:
-
-    `php bin/magento module:enable Prince_Extrafee`</br>
+    `composer require mageprince/magento2-extrafee:dev-master` </br>
     `php bin/magento setup:upgrade`
+    
 
 <b>Install Manually:</b>
 
@@ -31,15 +26,16 @@ Installation instructions
 <b>php bin/magento setup:static-content:deploy</b>
 * Now Flush Cache: <b>php bin/magento cache:flush</b>
 
+<b>SCREENSHOTS</b>
 
-<b>ADMIN</b> 
+<b>Configuration Settings</b> 
 
-<img src="https://preview.ibb.co/fcK6fa/admin_Screenshot.png" alt="admin_Screenshot" border="0"/>
+<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/configuration.png" alt="admin_Screenshot" border="0"/>
 
-<b>CART PAGE</b>
+<b>Cart Page</b>
 
-<img src="https://preview.ibb.co/j0R8tv/cartPage.png" alt="cartPage" border="0"/>
+<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/cartPage.png" alt="cartPage" border="0"/>
 
-<b>CHECKOUT PAGE</b>
+<b>Checkout Page</b>
 
-<img src="https://preview.ibb.co/esZuYv/checkout_Page.png" alt="checkout_Page" border="0"/>
+<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/checkout_Page.png" alt="checkout_Page" border="0"/>
