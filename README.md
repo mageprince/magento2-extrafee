@@ -6,6 +6,24 @@ Magento 2 Add Extra Fee To Order
 Installation instructions
 =========================
 
+<b>Install Via Composer:</b>
+
+1. Go to Magento2 root folder
+
+2. Enter following commands to install module:
+
+    `composer config repositories.mageprince git https://github.com/mageprince/magento2-extrafee.git`
+    `composer require mageprince/magento2-extrafee:dev-master`
+
+   Wait while dependencies are updated.
+
+3. Enter following commands to enable module:
+
+    `php bin/magento module:enable Prince_Extrafee`
+    `php bin/magento setup:upgrade`
+
+<b>Install Manually:</b>
+
 * Copy the content of the repo to the Magento 2 root folder
 * Run command:
 <b>php bin/magento setup:upgrade</b>
