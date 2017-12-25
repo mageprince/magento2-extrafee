@@ -12,14 +12,14 @@ Installation instructions
 
 2. Enter following commands to install module:
 
-    `composer config repositories.mageprince git https://github.com/mageprince/magento2-extrafee.git`
+    `composer config repositories.mageprince git https://github.com/mageprince/magento2-extrafee.git`</br>
     `composer require mageprince/magento2-extrafee:dev-master`
 
    Wait while dependencies are updated.
 
 3. Enter following commands to enable module:
 
-    `php bin/magento module:enable Prince_Extrafee`
+    `php bin/magento module:enable Prince_Extrafee`</br>
     `php bin/magento setup:upgrade`
 
 <b>Install Manually:</b>
