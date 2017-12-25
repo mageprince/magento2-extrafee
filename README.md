@@ -24,7 +24,7 @@ Installation instructions
 
 <b>Install Manually:</b>
 
-* Copy the content of the repo to the Magento 2 root folder
+* Create folder `app/code/Prince/Extrafee` and copy the content of the repo 
 * Run command:
 <b>php bin/magento setup:upgrade</b>
 * Run Command:
