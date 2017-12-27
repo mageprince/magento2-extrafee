@@ -44,10 +44,9 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 
         $exist_amount = 0;
         $balance = $fee - $exist_amount;
-        $total->setBaseTotalAmount('fee', $balance);
+        $total->setTotalAmount('fee', $balance);
         $total->setFee($balance);
         $total->setBaseFee($balance);
-        $total->setGrandTotal($total->getGrandTotal() + $balance);
         $total->setBaseGrandTotal($total->getBaseGrandTotal() + $balance);
 
         return $this;
