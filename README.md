@@ -15,6 +15,7 @@ Installation instructions
     1. `composer config repositories.mageprince git https://github.com/mageprince/magento2-extrafee.git`</br>
     2. `composer require mageprince/magento2-extrafee:dev-master` </br>
     3. `php bin/magento setup:upgrade`
+    4. `php bin/magento setup:static-content:deploy`
     
 
 <b>Install Manually:</b>
@@ -24,7 +25,6 @@ Installation instructions
 <b>php bin/magento setup:upgrade</b>
 * Run Command:
 <b>php bin/magento setup:static-content:deploy</b>
-* Now Flush Cache: <b>php bin/magento cache:flush</b>
 
 <b>SCREENSHOTS</b>
 
