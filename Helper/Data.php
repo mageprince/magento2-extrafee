@@ -28,18 +28,53 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         );
     }
 
+    /**
+     * Get module status
+     *
+     * @return bool
+     */
+    public function isEnable()
+    {
+        return $this->getConfig('extrafee/general/active');
+    }
+
+    /**
+     * Get minimum order amount to add extrafee
+     *
+     * @return bool
+     */
+    public function getMinOrderTotal()
+    {
+        return $this->getConfig('extrafee/general/minorderamount');
+    }
+
+    /**
+     * Get extrafee title
+     *
+     * @return string
+     */
     public function getTitle()
     {
-        return $this->getConfig('customfee/general/title');
+        return $this->getConfig('extrafee/general/title');
     }
 
+    /**
+     * Get extrafee amount
+     *
+     * @return number
+     */
     public function getExtraFee()
     {
-        return $this->getConfig('customfee/general/price');
+        return $this->getConfig('extrafee/general/price');
     }
 
+    /**
+     * Get extrafee price type
+     *
+     * @return bool
+     */
     public function getPriceType()
     {
-        return $this->getConfig('customfee/general/pricetype');
+        return $this->getConfig('extrafee/general/pricetype');
     }
 }

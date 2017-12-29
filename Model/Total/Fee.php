@@ -34,20 +34,27 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
     ) {
         parent::collect($quote, $shippingAssignment, $total);
 
-        $priceType = $this->_helper->getPriceType();
-        $fee = $this->_helper->getExtraFee();
+        $enabled = $this->_helper->isEnable();
+        $minOrderTotal = $this->_helper->getMinOrderTotal();
+        $subTotal = $quote->getSubtotal();
 
-        if ($priceType){
-            $subTotal = $quote->getSubtotal();
-            $fee = ($subTotal * $fee) / 100;
+        if ($enabled && $minOrderTotal <= $subTotal) {
+            $priceType = $this->_helper->getPriceType();
+            $fee = $this->_helper->getExtraFee();
+
+            if ($priceType) {
+                $fee = ($subTotal * $fee) / 100;
+            }
+
+            $exist_amount = 0;
+            $balance = $fee - $exist_amount;
+            $total->setTotalAmount('fee', $balance);
+            $total->setFee($balance);
+            $total->setBaseFee($balance);
+            $quote->setFee($fee);
+            $quote->setBaseFee($fee);
+            $total->setBaseGrandTotal($total->getBaseGrandTotal() + $balance);
         }
-
-        $exist_amount = 0;
-        $balance = $fee - $exist_amount;
-        $total->setTotalAmount('fee', $balance);
-        $total->setFee($balance);
-        $total->setBaseFee($balance);
-        $total->setBaseGrandTotal($total->getBaseGrandTotal() + $balance);
 
         return $this;
     } 
@@ -76,19 +83,30 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
      */
     public function fetch(\Magento\Quote\Model\Quote $quote, \Magento\Quote\Model\Quote\Address\Total $total)
     {
-        $priceType = $this->_helper->getPriceType();
-        $fee = $this->_helper->getExtraFee();
+        $enabled = $this->_helper->isEnable();
+        $minOrderTotal = $this->_helper->getMinOrderTotal();
+        $subTotal = $quote->getSubtotal();
 
-        if ($priceType){
-            $subTotal = $quote->getSubtotal();
-            $fee = ($subTotal * $fee) / 100;
+        $result = [];
+
+        if ($enabled && $minOrderTotal <= $subTotal) {
+
+            $priceType = $this->_helper->getPriceType();
+            $fee = $this->_helper->getExtraFee();
+
+            if ($priceType){
+                $subTotal = $quote->getSubtotal();
+                $fee = ($subTotal * $fee) / 100;
+            }
+
+            $result = [
+                'code' => 'fee',
+                'title' => $this->getLabel(),
+                'value' => $fee
+            ];
         }
 
-        return [
-            'code' => 'fee',
-            'title' => __($this->_helper->getTitle()),
-            'value' => $fee
-        ];
+        return $result;
     }
 
     /**

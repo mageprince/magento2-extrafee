@@ -4,14 +4,14 @@
         <tab id="mageprince" translate="label" sortOrder="110">
             <label>MagePrince</label>
         </tab>
-        <section id="customfee" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="extrafee" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
             <label>Extra Fee</label>
             <tab>mageprince</tab>
             <resource>Magento_Backend::content</resource>
             <group id="general" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Extra Fee</label>
-                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
@@ -23,9 +23,13 @@
                     <label>Price Type</label>
                     <source_model>Prince\Extrafee\Model\Config\Source\PriceType</source_model>
                 </field>
-                <field id="price" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                <field id="price" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Extra Fee</label>
                     <validate>required-entry validate-number</validate>
+                </field>
+                <field id="minorderamount" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum Order Amount</label>
+                    <validate>validate-number</validate>
                 </field>
             </group>
         </section>

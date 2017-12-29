@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <customfee>
+        <extrafee>
             <general>
                 <active>1</active>
                 <title>Extra Fee</title>
+                <pricetype>0</pricetype>
                 <price>10</price>
+                <minorderamount>0</minorderamount>
             </general>
-        </customfee>
+        </extrafee>
     </default>
 </config>

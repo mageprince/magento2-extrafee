@@ -1,8 +1,8 @@
-<!-- ko -->
+<!-- ko if: isDisplayed() -->
 <tr class="totals fee excl">
-    <th class="mark" colspan="1" scope="row" data-bind="text: title"></th>
+    <th class="mark" colspan="1" scope="row" data-bind="text: getExtraFeeTitle"></th>
     <td class="amount">
-        <span class="price" data-bind="text: getValue()"></span>
+        <span class="price" data-bind="text: getFormattedPrice()"></span>
     </td>
 </tr>
 <!-- /ko -->

@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="order_totals">
-            <block class="Prince\Extrafee\Block\Adminhtml\Sales\Totals" name="fee"/>
-        </referenceContainer>
+        <referenceBlock name="creditmemo_totals">
+            <block class="Prince\Extrafee\Block\Adminhtml\Sales\Order\Creditmemo\Totals"
+                   name="fee"/>
+        </referenceBlock>
     </body>
 </page>
