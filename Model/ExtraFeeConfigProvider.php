@@ -46,7 +46,7 @@ class ExtraFeeConfigProvider implements ConfigProviderInterface
             $extraFeeAmount = ($subTotal * $extraFeeAmount) / 100;
         }
         $extraFeeConfig['extra_fee_amount'] = $extraFeeAmount;
-        $extraFeeConfig['show_hide_extrafee'] = ($enabled && ($minOrderTotal <= $subTotal) && $quote->getFee()) ? true : false;
+        $extraFeeConfig['show_hide_extrafee'] = ($enabled && ($minOrderTotal >= $subTotal) && $quote->getFee()) ? true : false;
         return $extraFeeConfig;
     }
 }

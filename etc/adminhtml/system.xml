@@ -28,8 +28,10 @@
                     <validate>required-entry validate-number</validate>
                 </field>
                 <field id="minorderamount" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <comment>Extrafee apply if subtotal less than or equal to this amount.</comment>
                     <label>Minimum Order Amount</label>
                     <validate>validate-number</validate>
+                    <validate>required-entry validate-number</validate>
                 </field>
             </group>
         </section>

@@ -38,7 +38,7 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
         $minOrderTotal = $this->_helper->getMinOrderTotal();
         $subTotal = $quote->getSubtotal();
 
-        if ($enabled && $minOrderTotal <= $subTotal) {
+        if ($enabled && $minOrderTotal >= $subTotal) {
             $priceType = $this->_helper->getPriceType();
             $fee = $this->_helper->getExtraFee();
 
@@ -89,7 +89,7 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 
         $result = [];
 
-        if ($enabled && $minOrderTotal <= $subTotal) {
+        if ($enabled && $minOrderTotal >= $subTotal) {
 
             $priceType = $this->_helper->getPriceType();
             $fee = $this->_helper->getExtraFee();
