@@ -2,6 +2,10 @@
 
 namespace Prince\Extrafee\Model\Total;
 
+/**
+ * Class Fee
+ * @package Prince\Extrafee\Model\Total
+ */
 class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 {
     
@@ -26,7 +30,13 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
         $this->quoteValidator = $quoteValidator;
         $this->_helper = $helper;
     }
-    
+
+    /**
+     * @param \Magento\Quote\Model\Quote $quote
+     * @param \Magento\Quote\Api\Data\ShippingAssignmentInterface $shippingAssignment
+     * @param \Magento\Quote\Model\Quote\Address\Total $total
+     * @return $this
+     */
     public function collect(
         \Magento\Quote\Model\Quote $quote,
         \Magento\Quote\Api\Data\ShippingAssignmentInterface $shippingAssignment,
@@ -57,8 +67,11 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
         }
 
         return $this;
-    } 
+    }
 
+    /**
+     * @param Address\Total $total
+     */
     protected function clearValues(Address\Total $total)
     {
         $total->setTotalAmount('subtotal', 0);

@@ -6,6 +6,10 @@ use Magento\Framework\Setup\UpgradeSchemaInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 
+/**
+ * Class UpgradeSchema
+ * @package Prince\Extrafee\Setup
+ */
 class UpgradeSchema implements UpgradeSchemaInterface
 {
     /**
@@ -64,8 +68,6 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     'comment' =>'Base Fee'
                 ]
             );
-
-        
 
         $setup->getConnection()
             ->addColumn(

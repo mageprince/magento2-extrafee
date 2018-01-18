@@ -2,6 +2,10 @@
 
 namespace Prince\Extrafee\Block\Adminhtml\Sales;
 
+/**
+ * Class Totals
+ * @package Prince\Extrafee\Block\Adminhtml\Sales
+ */
 class Totals extends \Magento\Framework\View\Element\Template
 {
 

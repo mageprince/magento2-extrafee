@@ -1,8 +1,13 @@
 <?php
+
 namespace Prince\Extrafee\Model;
 
 use Magento\Checkout\Model\ConfigProviderInterface;
 
+/**
+ * Class ExtraFeeConfigProvider
+ * @package Prince\Extrafee\Model
+ */
 class ExtraFeeConfigProvider implements ConfigProviderInterface
 {
     /**
@@ -32,6 +37,9 @@ class ExtraFeeConfigProvider implements ConfigProviderInterface
         $this->checkoutSession = $checkoutSession;
     }
 
+    /**
+     * @return array
+     */
     public function getConfig()
     {
         $extraFeeConfig = [];

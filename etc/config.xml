@@ -7,7 +7,7 @@
                 <title>Extra Fee</title>
                 <pricetype>0</pricetype>
                 <price>10</price>
-                <minorderamount>0</minorderamount>
+                <minorderamount>999999</minorderamount>
             </general>
         </extrafee>
     </default>

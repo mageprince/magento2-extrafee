@@ -4,6 +4,10 @@ namespace Prince\Extrafee\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 
+/**
+ * Class AfterOrder
+ * @package Prince\Extrafee\Observer
+ */
 class AfterOrder implements ObserverInterface
 {
     /**

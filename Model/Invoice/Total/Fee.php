@@ -4,6 +4,10 @@ namespace Prince\Extrafee\Model\Invoice\Total;
 
 use Magento\Sales\Model\Order\Invoice\Total\AbstractTotal;
 
+/**
+ * Class Fee
+ * @package Prince\Extrafee\Model\Invoice\Total
+ */
 class Fee extends AbstractTotal
 {
     /**

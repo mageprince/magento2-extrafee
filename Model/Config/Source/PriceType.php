@@ -2,6 +2,10 @@
 
 namespace Prince\Extrafee\Model\Config\Source;
 
+/**
+ * Class PriceType
+ * @package Prince\Extrafee\Model\Config\Source
+ */
 class PriceType implements \Magento\Framework\Option\ArrayInterface
 {
     /**

@@ -4,6 +4,10 @@ namespace Prince\Extrafee\Model\Creditmemo\Total;
 
 use Magento\Sales\Model\Order\Creditmemo\Total\AbstractTotal;
 
+/**
+ * Class Fee
+ * @package Prince\Extrafee\Model\Creditmemo\Total
+ */
 class Fee extends AbstractTotal
 {
     /**

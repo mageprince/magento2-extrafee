@@ -2,6 +2,10 @@
 
 namespace Prince\Extrafee\Helper;
 
+/**
+ * Class Data
+ * @package Prince\Extrafee\Helper
+ */
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     /**
@@ -20,6 +24,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $this->_scopeConfig = $scopeInterface;
     }
 
+    /**
+     * @param $config
+     * @return mixed
+     */
     public function getConfig($config)
     {
         return $this->_scopeConfig->getValue(
