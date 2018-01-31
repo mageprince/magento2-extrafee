@@ -35,11 +35,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    'default' => 0.00,
                     'nullable' => true,
-                    'comment' =>'Fee'
-
+                    'length' => '12,4',
+                    'default' => '0.0000',
+                    'comment' => 'Fee'
                 ]
             );
             
@@ -49,10 +48,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    'default' => 0.00,
                     'nullable' => true,
-                    'comment' =>'Fee'
+                    'length' => '12,4',
+                    'default' => '0.0000',
+                    'comment' => 'Fee'
                 ]
             );
 
@@ -62,10 +61,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'base_fee',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    'default' => 0.00,
                     'nullable' => true,
-                    'comment' =>'Base Fee'
+                    'length' => '12,4',
+                    'default' => '0.0000',
+                    'comment' => 'Base Fee'
                 ]
             );
 
@@ -75,11 +74,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'base_fee',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    'default' => 0.00,
                     'nullable' => true,
-                    'comment' =>'Base Fee'
-
+                    'length' => '12,4',
+                    'default' => '0.0000',
+                    'comment' => 'Base Fee'
                 ]
             );
 
@@ -89,11 +87,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    'default' => 0.00,
                     'nullable' => true,
-                    'comment' =>'Fee'
-
+                    'length' => '12,4',
+                    'default' => '0.0000',
+                    'comment' => 'Fee'
                 ]
             );
 
@@ -103,11 +100,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'base_fee',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    'default' => 0.00,
                     'nullable' => true,
-                    'comment' =>'Base Fee'
-
+                    'length' => '12,4',
+                    'default' => '0.0000',
+                    'comment' => 'Base Fee'
                 ]
             );
 
@@ -117,11 +113,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    'default' => 0.00,
                     'nullable' => true,
-                    'comment' =>'Fee'
-
+                    'length' => '12,4',
+                    'default' => '0.0000',
+                    'comment' => 'Fee'
                 ]
             );
 
@@ -131,11 +126,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'base_fee',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    'default' => 0.00,
                     'nullable' => true,
-                    'comment' =>'Base Fee'
-
+                    'length' => '12,4',
+                    'default' => '0.0000',
+                    'comment' => 'Base Fee'
                 ]
             );
 
@@ -145,11 +139,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'fee',
                 [
                     'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    'default' => 0.00,
                     'nullable' => true,
-                    'comment' =>'Fee'
-
+                    'length' => '12,4',
+                    'default' => '0.0000',
+                    'comment' => 'Fee'
                 ]
             );
 
@@ -158,12 +151,11 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 $setup->getTable($creditmemoTable),
                 'base_fee',
                 [
-                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    'default' => 0.00,
+                   'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
                     'nullable' => true,
-                    'comment' =>'Base Fee'
-
+                    'length' => '12,4',
+                    'default' => '0.0000',
+                    'comment' => 'Base Fee'
                 ]
             );
 
