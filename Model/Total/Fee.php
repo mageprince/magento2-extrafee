@@ -47,6 +47,7 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
         $enabled = $this->_helper->isEnable();
         $minOrderTotal = $this->_helper->getMinOrderTotal();
         $subTotal = $quote->getSubtotal();
+        $fee = 0;
 
         if ($enabled && $minOrderTotal >= $subTotal) {
             $priceType = $this->_helper->getPriceType();
@@ -54,17 +55,15 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 
             if ($priceType) {
                 $fee = ($subTotal * $fee) / 100;
-            }
-
-            $exist_amount = 0;
-            $balance = $fee - $exist_amount;
-            $total->setTotalAmount('fee', $balance);
-            $total->setFee($balance);
-            $total->setBaseFee($balance);
-            $quote->setFee($fee);
-            $quote->setBaseFee($fee);
-            $total->setBaseGrandTotal($total->getBaseGrandTotal() + $balance);
+            }            
         }
+
+        $total->setTotalAmount('fee', $fee);
+        $total->setFee($fee);
+        $total->setBaseFee($fee);
+        $quote->setFee($fee);
+        $quote->setBaseFee($fee);
+        $total->setBaseGrandTotal($total->getBaseGrandTotal() + $fee);
 
         return $this;
     }
