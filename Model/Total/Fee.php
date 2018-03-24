@@ -85,19 +85,21 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
         }
 
         $total->setTotalAmount('fee', $fee);
+        $total->setBaseTotalAmount('fee', $fee);
         $total->setFee($fee);
         $total->setBaseFee($fee);
         $quote->setFee($fee);
         $quote->setBaseFee($fee);
-        $total->setBaseGrandTotal($total->getBaseGrandTotal() + $fee);
-
+        $quote->setGrandTotal($total->getGrandTotal() + $fee);
+        $quote->setBaseGrandTotal($total->getBaseGrandTotal() + $fee);
+        
         return $this;
     }
 
     /**
-     * @param Address\Total $total
+     * @param \Magento\Quote\Model\Quote\Address\Total $total
      */
-    protected function clearValues(Address\Total $total)
+    protected function clearValues(\Magento\Quote\Model\Quote\Address\Total $total)
     {
         $total->setTotalAmount('subtotal', 0);
         $total->setBaseTotalAmount('subtotal', 0);
