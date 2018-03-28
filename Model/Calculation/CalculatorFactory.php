@@ -26,18 +26,15 @@
  * @author MagePrince
  */
 
-namespace Prince\Extrafee\Model;
+namespace Prince\Extrafee\Model\Calculation;
 
-use Magento\Checkout\Model\ConfigProviderInterface;
-use Magento\Checkout\Model\Session;
+use Magento\Framework\App\ObjectManager;
+use Magento\Framework\Exception\ConfigurationMismatchException;
+use Magento\Framework\Phrase;
 use Prince\Extrafee\Helper\Data as FeeHelper;
-use Prince\Extrafee\Model\Calculation\CalculatorInterface;
+use Prince\Extrafee\Model\Config\Source\PriceType;
 
-/**
- * Class ExtraFeeConfigProvider
- * @package Prince\Extrafee\Model
- */
-class ExtraFeeConfigProvider implements ConfigProviderInterface
+class CalculatorFactory
 {
     /**
      * @var FeeHelper
@@ -45,38 +42,35 @@ class ExtraFeeConfigProvider implements ConfigProviderInterface
     protected $helper;
 
     /**
-     * @var Session
+     * @var ObjectManager
      */
-    protected $checkoutSession;
+    protected $objectManager;
 
     /**
-     * @var CalculatorInterface
-     */
-    protected $calculator;
-
-    /**
+     * CalculationFactory constructor.
+     *
+     * @param ObjectManager $objectManager
      * @param FeeHelper $helper
-     * @param Session $checkoutSession
-     * @param CalculatorInterface $calculator
      */
-    public function __construct(FeeHelper $helper, Session $checkoutSession, CalculatorInterface $calculator) {
+    public function __construct(ObjectManager $objectManager, FeeHelper $helper)
+    {
         $this->helper = $helper;
-        $this->checkoutSession = $checkoutSession;
-        $this->calculator = $calculator;
+        $this->objectManager = $objectManager;
     }
 
     /**
-     * @return array
+     * @return CalculatorInterface
+     * @throws ConfigurationMismatchException
      */
-    public function getConfig()
+    public function get(): CalculatorInterface
     {
-        $extraFeeConfig = [];
-        $quote = $this->checkoutSession->getQuote();
-        $fee = $this->calculator->calculate($quote);
-
-        $extraFeeConfig['fee_title'] = $this->helper->getTitle();
-        $extraFeeConfig['extra_fee_amount'] = $fee;
-        $extraFeeConfig['show_hide_extrafee'] = $fee > 0.0;
-        return $extraFeeConfig;
+        switch ($this->helper->getPriceType()) {
+            case PriceType::TYPE_FIXED:
+                return $this->objectManager->get(FixedCalculator::class);
+            case PriceType::TYPE_PERCENTAGE:
+                return $this->objectManager->get(PercentageCalculator::class);
+            default:
+                throw new ConfigurationMismatchException(__('Could not find price calculator for type %1', $this->helper->getPriceType()));
+        }
     }
 }
