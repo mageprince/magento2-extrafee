@@ -42,6 +42,7 @@ class PriceType implements ArrayInterface
     const TYPE_FIXED = 0;
     const TYPE_PERCENTAGE = 1;
     const TYPE_PER_ROW = 2;
+    const TYPE_PER_ITEM = 3;
 
     /**
      * Options getter
@@ -54,6 +55,7 @@ class PriceType implements ArrayInterface
             ['value' => self::TYPE_PERCENTAGE, 'label' => __('Percentage Price')],
             ['value' => self::TYPE_FIXED, 'label' => __('Fixed Price')],
             ['value' => self::TYPE_PER_ROW, 'label' => __('Per row')],
+            ['value' => self::TYPE_PER_ITEM, 'label' => __('Per item')],
         ];
     }
 
