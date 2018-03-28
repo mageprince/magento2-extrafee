@@ -105,4 +105,14 @@ class Data extends AbstractHelper
     {
         return (int) $this->getConfig('extrafee/general/pricetype');
     }
+
+    /**
+     * Get module status
+     *
+     * @return bool
+     */
+    public function isRefund(): bool
+    {
+        return (bool) $this->getConfig('extrafee/general/refund');
+    }
 }

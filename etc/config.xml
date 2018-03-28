@@ -9,6 +9,7 @@
                 <price>10</price>
                 <minorderamount />
                 <maxorderamount />
+                <refund>1</refund>
             </general>
         </extrafee>
     </default>
