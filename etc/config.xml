@@ -8,6 +8,7 @@
                 <pricetype>0</pricetype>
                 <price>10</price>
                 <minorderamount />
+                <maxorderamount />
             </general>
         </extrafee>
     </default>

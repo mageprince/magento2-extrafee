@@ -67,6 +67,16 @@ class Data extends AbstractHelper
     }
 
     /**
+     * Get minimum order amount to add extrafee
+     *
+     * @return float
+     */
+    public function getMaxOrderTotal(): float
+    {
+        return (float) $this->getConfig('extrafee/general/maxorderamount');
+    }
+
+    /**
      * Get extrafee title
      *
      * @return string

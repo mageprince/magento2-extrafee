@@ -28,8 +28,13 @@
                     <validate>required-entry validate-number</validate>
                 </field>
                 <field id="minorderamount" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <comment>Remove extrafee after subtotal is less than or equal to this amount.</comment>
-                    <label><![CDATA[Remove Extrafee After Subtotal]]></label>
+                    <comment>Minimal order amount</comment>
+                    <label><![CDATA[Don't calculate fee if the order amount was les then amount]]></label>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="maxorderamount" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <comment>Maximum order amount</comment>
+                    <label><![CDATA[Don't calculate fee if the order amount was more then amount]]>></label>
                     <validate>validate-number</validate>
                 </field>
             </group>

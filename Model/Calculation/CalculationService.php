@@ -80,7 +80,11 @@ class CalculationService implements CalculatorInterface
             return 0.0;
         }
 
-        if (!$this->hasMinimalOrderTotal($quote)) {
+        if (!$this->hasMinOrderTotal($quote)) {
+            return 0.0;
+        }
+
+        if ($this->hasMaxOrderTotal($quote)) {
             return 0.0;
         }
 
@@ -96,9 +100,21 @@ class CalculationService implements CalculatorInterface
      * @param Quote $quote
      * @return bool
      */
-    private function hasMinimalOrderTotal(Quote $quote): bool
+    private function hasMinOrderTotal(Quote $quote): bool
     {
         $amount = $quote->getSubtotal();
         return $amount - $this->helper->getMinOrderTotal() > 0.0001;
+    }
+
+
+
+    /**
+     * @param Quote $quote
+     * @return bool
+     */
+    private function hasMaxOrderTotal(Quote $quote): bool
+    {
+        $amount = $quote->getSubtotal();
+        return $amount - $this->helper->getMaxOrderTotal() > 0.0001;
     }
 }
