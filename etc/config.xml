@@ -7,8 +7,8 @@
                 <title>Extra Fee</title>
                 <pricetype>0</pricetype>
                 <price>10</price>
-                <minorderamount />
-                <maxorderamount />
+                <minorderamount>0</minorderamount>
+                <maxorderamount>9999</maxorderamount>
                 <refund>1</refund>
             </general>
         </extrafee>
