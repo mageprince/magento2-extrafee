@@ -28,6 +28,7 @@
 
 namespace Prince\Extrafee\Model\Creditmemo\Total;
 
+use Magento\Sales\Model\Order\Creditmemo;
 use Magento\Sales\Model\Order\Creditmemo\Total\AbstractTotal;
 
 /**
@@ -37,10 +38,10 @@ use Magento\Sales\Model\Order\Creditmemo\Total\AbstractTotal;
 class Fee extends AbstractTotal
 {
     /**
-     * @param \Magento\Sales\Model\Order\Creditmemo $creditmemo
+     * @param Creditmemo $creditmemo
      * @return $this
      */
-    public function collect(\Magento\Sales\Model\Order\Creditmemo $creditmemo)
+    public function collect(Creditmemo $creditmemo)
     {
         $creditmemo->setFee(0);
         $creditmemo->setBaseFee(0);

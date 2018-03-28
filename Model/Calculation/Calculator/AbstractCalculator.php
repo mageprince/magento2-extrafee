@@ -26,7 +26,7 @@
  * @author MagePrince
  */
 
-namespace Prince\Extrafee\Model\Calculation;
+namespace Prince\Extrafee\Model\Calculation\Calculator;
 
 use Prince\Extrafee\Helper\Data as FeeHelper;
 

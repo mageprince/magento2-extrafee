@@ -31,6 +31,7 @@ namespace Prince\Extrafee\Model\Calculation;
 use Magento\Framework\Exception\ConfigurationMismatchException;
 use Magento\Quote\Model\Quote;
 use Prince\Extrafee\Helper\Data as FeeHelper;
+use Prince\Extrafee\Model\Calculation\Calculator\CalculatorInterface;
 use Psr\Log\LoggerInterface;
 
 /**

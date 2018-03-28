@@ -28,6 +28,7 @@
 
 namespace Prince\Extrafee\Model\Invoice\Total;
 
+use Magento\Sales\Model\Order\Invoice;
 use Magento\Sales\Model\Order\Invoice\Total\AbstractTotal;
 
 /**
@@ -37,10 +38,10 @@ use Magento\Sales\Model\Order\Invoice\Total\AbstractTotal;
 class Fee extends AbstractTotal
 {
     /**
-     * @param \Magento\Sales\Model\Order\Invoice $invoice
+     * @param Invoice $invoice
      * @return $this
      */
-    public function collect(\Magento\Sales\Model\Order\Invoice $invoice)
+    public function collect(Invoice $invoice)
     {
         $invoice->setFee(0);
         $invoice->setBaseFee(0);

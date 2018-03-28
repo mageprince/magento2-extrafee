@@ -33,7 +33,7 @@ use Magento\Quote\Api\Data\ShippingAssignmentInterface;
 use Magento\Quote\Model\Quote;
 use Magento\Quote\Model\Quote\Address;
 use Prince\Extrafee\Helper\Data as FeeHelper;
-use Prince\Extrafee\Model\Calculation\CalculatorInterface;
+use Prince\Extrafee\Model\Calculation\Calculator\CalculatorInterface;
 
 /**
  * Class Fee

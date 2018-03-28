@@ -30,7 +30,6 @@ namespace Prince\Extrafee\Model\Calculation;
 
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Exception\ConfigurationMismatchException;
-use Magento\Framework\Phrase;
 use Prince\Extrafee\Helper\Data as FeeHelper;
 use Prince\Extrafee\Model\Config\Source\PriceType;
 
@@ -59,16 +58,16 @@ class CalculatorFactory
     }
 
     /**
-     * @return CalculatorInterface
+     * @return Calculator\CalculatorInterface
      * @throws ConfigurationMismatchException
      */
-    public function get(): CalculatorInterface
+    public function get(): Calculator\CalculatorInterface
     {
         switch ($this->helper->getPriceType()) {
             case PriceType::TYPE_FIXED:
-                return $this->objectManager->get(FixedCalculator::class);
+                return $this->objectManager->get(Calculator\FixedCalculator::class);
             case PriceType::TYPE_PERCENTAGE:
-                return $this->objectManager->get(PercentageCalculator::class);
+                return $this->objectManager->get(Calculator\PercentageCalculator::class);
             default:
                 throw new ConfigurationMismatchException(__('Could not find price calculator for type %1', $this->helper->getPriceType()));
         }

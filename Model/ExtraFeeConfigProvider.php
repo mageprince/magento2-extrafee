@@ -31,7 +31,7 @@ namespace Prince\Extrafee\Model;
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Checkout\Model\Session;
 use Prince\Extrafee\Helper\Data as FeeHelper;
-use Prince\Extrafee\Model\Calculation\CalculatorInterface;
+use Prince\Extrafee\Model\Calculation\Calculator\CalculatorInterface;
 
 /**
  * Class ExtraFeeConfigProvider
@@ -68,7 +68,7 @@ class ExtraFeeConfigProvider implements ConfigProviderInterface
     /**
      * @return array
      */
-    public function getConfig()
+    public function getConfig(): array
     {
         $extraFeeConfig = [];
         $quote = $this->checkoutSession->getQuote();

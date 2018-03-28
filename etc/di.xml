@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Prince\Extrafee\Model\Calculation\CalculatorInterface" type="Prince\Extrafee\Model\Calculation\CalculationService" />
+    <preference for="Prince\Extrafee\Model\Calculation\Calculator\CalculatorInterface" type="Prince\Extrafee\Model\Calculation\CalculationService" />
 </config>
