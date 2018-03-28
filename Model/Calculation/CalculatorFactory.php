@@ -28,8 +28,8 @@
 
 namespace Prince\Extrafee\Model\Calculation;
 
-use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Exception\ConfigurationMismatchException;
+use Magento\Framework\ObjectManagerInterface;
 use Prince\Extrafee\Helper\Data as FeeHelper;
 use Prince\Extrafee\Model\Config\Source\PriceType;
 
@@ -41,17 +41,17 @@ class CalculatorFactory
     protected $helper;
 
     /**
-     * @var ObjectManager
+     * @var ObjectManagerInterface
      */
     protected $objectManager;
 
     /**
      * CalculationFactory constructor.
      *
-     * @param ObjectManager $objectManager
+     * @param ObjectManagerInterface $objectManager
      * @param FeeHelper $helper
      */
-    public function __construct(ObjectManager $objectManager, FeeHelper $helper)
+    public function __construct(ObjectManagerInterface $objectManager, FeeHelper $helper)
     {
         $this->helper = $helper;
         $this->objectManager = $objectManager;
