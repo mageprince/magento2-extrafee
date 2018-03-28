@@ -39,8 +39,8 @@ class PriceType implements ArrayInterface
     /**
      * Price type variants
      */
-    public const TYPE_PERCENTAGE = 1;
-    public const TYPE_FIXED = 0;
+    const TYPE_PERCENTAGE = 1;
+    const TYPE_FIXED = 0;
 
     /**
      * Options getter
