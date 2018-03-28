@@ -26,32 +26,24 @@
  * @author MagePrince
  */
 
-namespace Prince\Extrafee\Model\Invoice\Total;
+namespace Prince\Extrafee\Model\Calculation\Calculator;
 
-use Magento\Sales\Model\Order\Invoice;
-use Magento\Sales\Model\Order\Invoice\Total\AbstractTotal;
+use Prince\Extrafee\Helper\Data as FeeHelper;
 
-/**
- * Class Fee
- * @package Prince\Extrafee\Model\Invoice\Total
- */
-class Fee extends AbstractTotal
+abstract class AbstractCalculator implements CalculatorInterface
 {
     /**
-     * @param Invoice $invoice
-     * @return $this
+     * @var FeeHelper
      */
-    public function collect(Invoice $invoice)
-    {
-        $invoice->setFee(0);
-        $invoice->setBaseFee(0);
-        $amount = $invoice->getOrder()->getFee();
-        $invoice->setFee($amount);
-        $amount = $invoice->getOrder()->getBaseFee();
-        $invoice->setBaseFee($amount);
-        $invoice->setGrandTotal($invoice->getGrandTotal() + $invoice->getFee());
-        $invoice->setBaseGrandTotal($invoice->getBaseGrandTotal() + $invoice->getFee());
+    protected $_helper;
 
-        return $this;
+    /**
+     * AbstractCalculation constructor.
+     *
+     * @param FeeHelper $helper
+     */
+    public function __construct(FeeHelper $helper)
+    {
+        $this->_helper = $helper;
     }
 }

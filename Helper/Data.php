@@ -28,38 +28,22 @@
 
 namespace Prince\Extrafee\Helper;
 
+use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Store\Model\ScopeInterface;
+
 /**
  * Class Data
  * @package Prince\Extrafee\Helper
  */
-class Data extends \Magento\Framework\App\Helper\AbstractHelper
+class Data extends AbstractHelper
 {
-    /**
-     * ScopeConfig
-     *
-     * @var \Magento\Framework\App\Config\ScopeConfigInterface
-     */
-    protected $_scopeConfig;
-
-    /**
-     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopInterface
-     */
-    public function __construct(
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeInterface
-    ) {
-        $this->_scopeConfig = $scopeInterface;
-    }
-
     /**
      * @param $config
      * @return mixed
      */
     public function getConfig($config)
     {
-        return $this->_scopeConfig->getValue(
-            $config, 
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
-        );
+        return $this->scopeConfig->getValue($config, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -67,19 +51,29 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      *
      * @return bool
      */
-    public function isEnable()
+    public function isEnable(): bool
     {
-        return $this->getConfig('extrafee/general/active');
+        return (bool) $this->getConfig('extrafee/general/active');
     }
 
     /**
      * Get minimum order amount to add extrafee
      *
-     * @return bool
+     * @return float
      */
-    public function getMinOrderTotal()
+    public function getMinOrderTotal(): float
     {
-        return $this->getConfig('extrafee/general/minorderamount');
+        return (float) $this->getConfig('extrafee/general/minorderamount');
+    }
+
+    /**
+     * Get minimum order amount to add extrafee
+     *
+     * @return float
+     */
+    public function getMaxOrderTotal(): float
+    {
+        return (float) $this->getConfig('extrafee/general/maxorderamount');
     }
 
     /**
@@ -87,28 +81,38 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
-        return $this->getConfig('extrafee/general/title');
+        return (string) $this->getConfig('extrafee/general/title');
     }
 
     /**
      * Get extrafee amount
      *
-     * @return number
+     * @return float
      */
-    public function getExtraFee()
+    public function getExtraFee(): float
     {
-        return $this->getConfig('extrafee/general/price');
+        return (float) $this->getConfig('extrafee/general/price');
     }
 
     /**
      * Get extrafee price type
      *
+     * @return int
+     */
+    public function getPriceType(): int
+    {
+        return (int) $this->getConfig('extrafee/general/pricetype');
+    }
+
+    /**
+     * Get module status
+     *
      * @return bool
      */
-    public function getPriceType()
+    public function isRefund(): bool
     {
-        return $this->getConfig('extrafee/general/pricetype');
+        return (bool) $this->getConfig('extrafee/general/refund');
     }
 }

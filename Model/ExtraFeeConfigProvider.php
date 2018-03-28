@@ -29,6 +29,9 @@
 namespace Prince\Extrafee\Model;
 
 use Magento\Checkout\Model\ConfigProviderInterface;
+use Magento\Checkout\Model\Session;
+use Prince\Extrafee\Helper\Data as FeeHelper;
+use Prince\Extrafee\Model\Calculation\Calculator\CalculatorInterface;
 
 /**
  * Class ExtraFeeConfigProvider
@@ -37,50 +40,43 @@ use Magento\Checkout\Model\ConfigProviderInterface;
 class ExtraFeeConfigProvider implements ConfigProviderInterface
 {
     /**
-     * @var \Prince\Extrafee\Helper\Data
+     * @var FeeHelper
      */
-    protected $_helper;
+    protected $helper;
 
     /**
-     * @var \Magento\Checkout\Model\Session
+     * @var Session
      */
     protected $checkoutSession;
 
     /**
-     * @var \Psr\Log\LoggerInterface
+     * @var CalculatorInterface
      */
-    protected $logger;
+    protected $calculator;
 
     /**
-     * @param \Prince\Extrafee\Helper\Data $helper
-     * @param \Magento\Checkout\Model\Session $checkoutSession
+     * @param FeeHelper $helper
+     * @param Session $checkoutSession
+     * @param CalculatorInterface $calculator
      */
-    public function __construct(
-        \Prince\Extrafee\Helper\Data $helper,
-        \Magento\Checkout\Model\Session $checkoutSession
-    ) {
-        $this->_helper = $helper;
+    public function __construct(FeeHelper $helper, Session $checkoutSession, CalculatorInterface $calculator) {
+        $this->helper = $helper;
         $this->checkoutSession = $checkoutSession;
+        $this->calculator = $calculator;
     }
 
     /**
      * @return array
      */
-    public function getConfig()
+    public function getConfig(): array
     {
         $extraFeeConfig = [];
-        $enabled = $this->_helper->isEnable();
-        $minOrderTotal = $this->_helper->getMinOrderTotal();
-        $extraFeeConfig['fee_title'] = $this->_helper->getTitle();
         $quote = $this->checkoutSession->getQuote();
-        $subTotal = $quote->getSubtotal();
-        $priceType = $this->_helper->getPriceType();
-        $extraFeeAmount = $this->_helper->getExtraFee();
-        if ($priceType) {
-            $extraFeeAmount = ($subTotal * $extraFeeAmount) / 100;
-        }
-        $extraFeeConfig['extra_fee_amount'] = $extraFeeAmount;
-        $extraFeeConfig['show_hide_extrafee'] = ($enabled && ($minOrderTotal >= $subTotal) && $quote->getFee()) ? true : false;
+        $fee = $this->calculator->calculate($quote);
+
+        $extraFeeConfig['fee_title'] = $this->helper->getTitle();
+        $extraFeeConfig['extra_fee_amount'] = $fee;
+        $extraFeeConfig['show_hide_extrafee'] = $fee > 0.0;
         return $extraFeeConfig;
     }
 }

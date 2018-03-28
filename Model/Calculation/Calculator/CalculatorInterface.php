@@ -26,32 +26,17 @@
  * @author MagePrince
  */
 
-namespace Prince\Extrafee\Model\Invoice\Total;
+namespace Prince\Extrafee\Model\Calculation\Calculator;
 
-use Magento\Sales\Model\Order\Invoice;
-use Magento\Sales\Model\Order\Invoice\Total\AbstractTotal;
+use Magento\Quote\Model\Quote;
 
-/**
- * Class Fee
- * @package Prince\Extrafee\Model\Invoice\Total
- */
-class Fee extends AbstractTotal
+interface CalculatorInterface
 {
     /**
-     * @param Invoice $invoice
-     * @return $this
+     * Calculate fee for quote
+     *
+     * @param Quote $quote
+     * @return float
      */
-    public function collect(Invoice $invoice)
-    {
-        $invoice->setFee(0);
-        $invoice->setBaseFee(0);
-        $amount = $invoice->getOrder()->getFee();
-        $invoice->setFee($amount);
-        $amount = $invoice->getOrder()->getBaseFee();
-        $invoice->setBaseFee($amount);
-        $invoice->setGrandTotal($invoice->getGrandTotal() + $invoice->getFee());
-        $invoice->setBaseGrandTotal($invoice->getBaseGrandTotal() + $invoice->getFee());
-
-        return $this;
-    }
+    public function calculate(Quote $quote): float;
 }

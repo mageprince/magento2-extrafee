@@ -28,12 +28,22 @@
 
 namespace Prince\Extrafee\Model\Config\Source;
 
+use Magento\Framework\Option\ArrayInterface;
+
 /**
  * Class PriceType
  * @package Prince\Extrafee\Model\Config\Source
  */
-class PriceType implements \Magento\Framework\Option\ArrayInterface
+class PriceType implements ArrayInterface
 {
+    /**
+     * Price type variants
+     */
+    const TYPE_FIXED = 0;
+    const TYPE_PERCENTAGE = 1;
+    const TYPE_PER_ROW = 2;
+    const TYPE_PER_ITEM = 3;
+
     /**
      * Options getter
      *
@@ -41,7 +51,12 @@ class PriceType implements \Magento\Framework\Option\ArrayInterface
      */
     public function toOptionArray()
     {
-        return [['value' => 1, 'label' => __('Percentage Price')], ['value' => 0, 'label' => __('Fixed Price')]];
+        return [
+            ['value' => self::TYPE_PERCENTAGE, 'label' => __('Percentage Price')],
+            ['value' => self::TYPE_FIXED, 'label' => __('Fixed Price')],
+            ['value' => self::TYPE_PER_ROW, 'label' => __('Per row')],
+            ['value' => self::TYPE_PER_ITEM, 'label' => __('Per item')],
+        ];
     }
 
     /**
@@ -51,6 +66,10 @@ class PriceType implements \Magento\Framework\Option\ArrayInterface
      */
     public function toArray()
     {
-        return [0 => __('Percentage Price'), 1 => __('Fixed Price')];
+        $result = [];
+        foreach ($this->toOptionArray() as $option) {
+            $result[$option['value']] = $option['label'];
+        }
+        return $result;
     }
 }

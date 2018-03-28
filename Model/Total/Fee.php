@@ -28,62 +28,49 @@
 
 namespace Prince\Extrafee\Model\Total;
 
+use Magento\Framework\Phrase;
+use Magento\Quote\Api\Data\ShippingAssignmentInterface;
+use Magento\Quote\Model\Quote;
+use Magento\Quote\Model\Quote\Address;
+use Prince\Extrafee\Helper\Data as FeeHelper;
+use Prince\Extrafee\Model\Calculation\Calculator\CalculatorInterface;
+
 /**
  * Class Fee
  * @package Prince\Extrafee\Model\Total
  */
-class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
+class Fee extends Address\Total\AbstractTotal
 {
-    
     /**
-     * @var \Magento\Quote\Model\QuoteValidator
-     */   
-    protected $quoteValidator = null; 
+     * @var FeeHelper
+     */
+    protected $helper;
 
     /**
-     * @var \Prince\Extrafee\Helper\Data
+     * @var CalculatorInterface
      */
-    protected $_helper;
+    protected $calculator;
 
     /**
-     * @param \Magento\Quote\Model\QuoteValidator $quoteValidator
-     * @param \Prince\Extrafee\Helper\Data $helper
+     * @param FeeHelper $helper
+     * @param CalculatorInterface $calculator
      */
-    public function __construct(
-        \Magento\Quote\Model\QuoteValidator $quoteValidator,
-        \Prince\Extrafee\Helper\Data $helper
-    ) {
-        $this->quoteValidator = $quoteValidator;
-        $this->_helper = $helper;
+    public function __construct(FeeHelper $helper, CalculatorInterface $calculator) {
+        $this->calculator = $calculator;
+        $this->helper = $helper;
     }
 
     /**
-     * @param \Magento\Quote\Model\Quote $quote
-     * @param \Magento\Quote\Api\Data\ShippingAssignmentInterface $shippingAssignment
-     * @param \Magento\Quote\Model\Quote\Address\Total $total
+     * @param Quote $quote
+     * @param ShippingAssignmentInterface $shippingAssignment
+     * @param Address\Total $total
      * @return $this
      */
-    public function collect(
-        \Magento\Quote\Model\Quote $quote,
-        \Magento\Quote\Api\Data\ShippingAssignmentInterface $shippingAssignment,
-        \Magento\Quote\Model\Quote\Address\Total $total
-    ) {
+    public function collect(Quote $quote, ShippingAssignmentInterface $shippingAssignment, Address\Total $total)
+    {
         parent::collect($quote, $shippingAssignment, $total);
 
-        $enabled = $this->_helper->isEnable();
-        $minOrderTotal = $this->_helper->getMinOrderTotal();
-        $subTotal = $quote->getSubtotal();
-        $fee = 0;
-
-        if ($enabled && $minOrderTotal >= $subTotal) {
-            $priceType = $this->_helper->getPriceType();
-            $fee = $this->_helper->getExtraFee();
-
-            if ($priceType) {
-                $fee = ($subTotal * $fee) / 100;
-            }            
-        }
-
+        $fee = $this->calculator->calculate($quote);
         $total->setTotalAmount('fee', $fee);
         $total->setBaseTotalAmount('fee', $fee);
         $total->setFee($fee);
@@ -97,9 +84,9 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
     }
 
     /**
-     * @param \Magento\Quote\Model\Quote\Address\Total $total
+     * @param Address\Total $total
      */
-    protected function clearValues(\Magento\Quote\Model\Quote\Address\Total $total)
+    protected function clearValues(Address\Total $total)
     {
         $total->setTotalAmount('subtotal', 0);
         $total->setBaseTotalAmount('subtotal', 0);
@@ -116,29 +103,17 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
     /**
      * Assign subtotal amount and label to address object
      *
-     * @param \Magento\Quote\Model\Quote $quote
+     * @param Quote $quote
      * @param Address\Total $total
      * @return array
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function fetch(\Magento\Quote\Model\Quote $quote, \Magento\Quote\Model\Quote\Address\Total $total)
+    public function fetch(Quote $quote, Address\Total $total): array
     {
-        $enabled = $this->_helper->isEnable();
-        $minOrderTotal = $this->_helper->getMinOrderTotal();
-        $subTotal = $quote->getSubtotal();
-
         $result = [];
+        $fee = $this->calculator->calculate($quote);
 
-        if ($enabled && $minOrderTotal >= $subTotal) {
-
-            $priceType = $this->_helper->getPriceType();
-            $fee = $this->_helper->getExtraFee();
-
-            if ($priceType){
-                $subTotal = $quote->getSubtotal();
-                $fee = ($subTotal * $fee) / 100;
-            }
-
+        if ($fee > 0.0) {
             $result = [
                 'code' => 'fee',
                 'title' => $this->getLabel(),
@@ -152,10 +127,10 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
     /**
      * Get label
      *
-     * @return \Magento\Framework\Phrase
+     * @return Phrase
      */
-    public function getLabel()
+    public function getLabel(): Phrase
     {
-        return __($this->_helper->getTitle());
+        return __($this->helper->getTitle());
     }
 }
