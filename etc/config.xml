@@ -3,11 +3,11 @@
     <default>
         <extrafee>
             <general>
-                <active>1</active>
+                <active>0</active>
                 <title>Extra Fee</title>
                 <pricetype>0</pricetype>
                 <price>10</price>
-                <minorderamount>0</minorderamount>
+                <minorderamount />
             </general>
         </extrafee>
     </default>
