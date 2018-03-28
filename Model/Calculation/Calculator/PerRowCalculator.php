@@ -26,48 +26,18 @@
  * @author MagePrince
  */
 
-namespace Prince\Extrafee\Model\Config\Source;
+namespace Prince\Extrafee\Model\Calculation\Calculator;
 
-use Magento\Framework\Option\ArrayInterface;
+use Magento\Quote\Model\Quote;
 
-/**
- * Class PriceType
- * @package Prince\Extrafee\Model\Config\Source
- */
-class PriceType implements ArrayInterface
+class PerRowCalculator extends AbstractCalculator
 {
     /**
-     * Price type variants
+     * {@inheritdoc}
      */
-    const TYPE_FIXED = 0;
-    const TYPE_PERCENTAGE = 1;
-    const TYPE_PER_ROW = 2;
-
-    /**
-     * Options getter
-     *
-     * @return array
-     */
-    public function toOptionArray()
+    public function calculate(Quote $quote): float
     {
-        return [
-            ['value' => self::TYPE_PERCENTAGE, 'label' => __('Percentage Price')],
-            ['value' => self::TYPE_FIXED, 'label' => __('Fixed Price')],
-            ['value' => self::TYPE_PER_ROW, 'label' => __('Per row')],
-        ];
-    }
-
-    /**
-     * Get options in "key-value" format
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        $result = [];
-        foreach ($this->toOptionArray() as $option) {
-            $result[$option['value']] = $option['label'];
-        }
-        return $result;
+        $fee = $this->_helper->getExtraFee();
+        return $fee * \count($quote->getAllVisibleItems());
     }
 }
