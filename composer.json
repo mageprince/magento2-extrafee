@@ -1,5 +1,5 @@
 {
-  "name": "mageprince/magento2-extrafee",
+  "name": "mageprince/module-extrafee",
   "description": "Magento 2 Add Extra Fee To Order",
   "require": {
     "magento/module-store": ">100.0",
