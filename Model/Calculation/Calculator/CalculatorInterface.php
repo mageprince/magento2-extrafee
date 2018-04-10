@@ -38,5 +38,5 @@ interface CalculatorInterface
      * @param Quote $quote
      * @return float
      */
-    public function calculate(Quote $quote): float;
+    public function calculate(Quote $quote);
 }

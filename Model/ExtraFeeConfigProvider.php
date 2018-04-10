@@ -68,7 +68,7 @@ class ExtraFeeConfigProvider implements ConfigProviderInterface
     /**
      * @return array
      */
-    public function getConfig(): array
+    public function getConfig()
     {
         $extraFeeConfig = [];
         $quote = $this->checkoutSession->getQuote();

@@ -35,7 +35,7 @@ class FixedCalculator extends AbstractCalculator
     /**
      * {@inheritdoc}
      */
-    public function calculate(Quote $quote): float
+    public function calculate(Quote $quote)
     {
         return $this->_helper->getExtraFee();
     }

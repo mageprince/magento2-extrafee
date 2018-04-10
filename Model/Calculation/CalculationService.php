@@ -73,7 +73,7 @@ class CalculationService implements CalculatorInterface
     /**
      * {@inheritdoc}
      */
-    public function calculate(Quote $quote): float
+    public function calculate(Quote $quote)
     {
         // If module not enabled the fee is 0.0
         if (!$this->helper->isEnable()) {
@@ -100,7 +100,7 @@ class CalculationService implements CalculatorInterface
      * @param Quote $quote
      * @return bool
      */
-    private function hasMinOrderTotal(Quote $quote): bool
+    private function hasMinOrderTotal(Quote $quote)
     {
         $amount = $quote->getSubtotal();
         return $this->helper->getMinOrderTotal() <= $amount ? true: false;
@@ -110,7 +110,7 @@ class CalculationService implements CalculatorInterface
      * @param Quote $quote
      * @return bool
      */
-    private function hasMaxOrderTotal(Quote $quote): bool
+    private function hasMaxOrderTotal(Quote $quote)
     {
         $amount = $quote->getSubtotal();
         return $this->helper->getMaxOrderTotal() <= $amount ? true: false;

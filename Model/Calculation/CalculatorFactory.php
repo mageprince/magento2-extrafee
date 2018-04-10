@@ -61,7 +61,7 @@ class CalculatorFactory
      * @return Calculator\CalculatorInterface
      * @throws ConfigurationMismatchException
      */
-    public function get(): Calculator\CalculatorInterface
+    public function get()
     {
         switch ($this->helper->getPriceType()) {
             case PriceType::TYPE_FIXED:

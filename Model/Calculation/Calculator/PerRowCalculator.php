@@ -35,7 +35,7 @@ class PerRowCalculator extends AbstractCalculator
     /**
      * {@inheritdoc}
      */
-    public function calculate(Quote $quote): float
+    public function calculate(Quote $quote)
     {
         $fee = $this->_helper->getExtraFee();
         return $fee * \count($quote->getAllVisibleItems());

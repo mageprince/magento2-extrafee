@@ -108,7 +108,7 @@ class Fee extends Address\Total\AbstractTotal
      * @return array
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function fetch(Quote $quote, Address\Total $total): array
+    public function fetch(Quote $quote, Address\Total $total)
     {
         $result = [];
         $fee = $this->calculator->calculate($quote);
@@ -129,7 +129,7 @@ class Fee extends Address\Total\AbstractTotal
      *
      * @return Phrase
      */
-    public function getLabel(): Phrase
+    public function getLabel()
     {
         return __($this->helper->getTitle());
     }
