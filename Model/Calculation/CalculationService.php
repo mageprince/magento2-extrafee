@@ -103,10 +103,8 @@ class CalculationService implements CalculatorInterface
     private function hasMinOrderTotal(Quote $quote): bool
     {
         $amount = $quote->getSubtotal();
-        return $amount - $this->helper->getMinOrderTotal() > 0.0001;
+        return $this->helper->getMinOrderTotal() <= $amount ? true: false;
     }
-
-
 
     /**
      * @param Quote $quote
@@ -115,6 +113,6 @@ class CalculationService implements CalculatorInterface
     private function hasMaxOrderTotal(Quote $quote): bool
     {
         $amount = $quote->getSubtotal();
-        return $amount - $this->helper->getMaxOrderTotal() > 0.0001;
+        return $this->helper->getMaxOrderTotal() <= $amount ? true: false;
     }
 }
