@@ -51,7 +51,7 @@ class Data extends AbstractHelper
      *
      * @return bool
      */
-    public function isEnable(): bool
+    public function isEnable()
     {
         return (bool) $this->getConfig('extrafee/general/active');
     }
@@ -61,7 +61,7 @@ class Data extends AbstractHelper
      *
      * @return float
      */
-    public function getMinOrderTotal(): float
+    public function getMinOrderTotal()
     {
         return (float) $this->getConfig('extrafee/general/minorderamount');
     }
@@ -71,7 +71,7 @@ class Data extends AbstractHelper
      *
      * @return float
      */
-    public function getMaxOrderTotal(): float
+    public function getMaxOrderTotal()
     {
         return (float) $this->getConfig('extrafee/general/maxorderamount');
     }
@@ -81,7 +81,7 @@ class Data extends AbstractHelper
      *
      * @return string
      */
-    public function getTitle(): string
+    public function getTitle()
     {
         return (string) $this->getConfig('extrafee/general/title');
     }
@@ -91,7 +91,7 @@ class Data extends AbstractHelper
      *
      * @return float
      */
-    public function getExtraFee(): float
+    public function getExtraFee()
     {
         return (float) $this->getConfig('extrafee/general/price');
     }
@@ -101,7 +101,7 @@ class Data extends AbstractHelper
      *
      * @return int
      */
-    public function getPriceType(): int
+    public function getPriceType()
     {
         return (int) $this->getConfig('extrafee/general/pricetype');
     }
@@ -111,7 +111,7 @@ class Data extends AbstractHelper
      *
      * @return bool
      */
-    public function isRefund(): bool
+    public function isRefund()
     {
         return (bool) $this->getConfig('extrafee/general/refund');
     }
