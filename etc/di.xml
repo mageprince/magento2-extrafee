@@ -1,4 +1,8 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Prince\Extrafee\Model\Calculation\Calculator\CalculatorInterface" type="Prince\Extrafee\Model\Calculation\CalculationService" />
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="prince_extrafee_order_extension_attribute"
+                type="Prince\Extrafee\Plugin\OrderRepositoryPlugin" />
+    </type>
 </config>
