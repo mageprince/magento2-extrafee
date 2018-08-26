@@ -3,6 +3,10 @@ Magento 2 Add Extra Fee To Order
 
 "Extra Fee" is an extension for add extra fee to order of your Magento 2 online store. Let your customers see the extra fee on cart page, checkout page, Invoice, Creditmemo, Order emails and Order prints.
 
+Please donate if you enjoy my extension.
+
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TKAKY4KP65Z4A)
+
 Installation instructions
 =========================
 
