@@ -70,16 +70,18 @@ class Fee extends Address\Total\AbstractTotal
     {
         parent::collect($quote, $shippingAssignment, $total);
 
-        $fee = $this->calculator->calculate($quote);
-        $total->setTotalAmount('fee', $fee);
-        $total->setBaseTotalAmount('fee', $fee);
-        $total->setFee($fee);
-        $total->setBaseFee($fee);
-        $quote->setFee($fee);
-        $quote->setBaseFee($fee);
-        $quote->setGrandTotal($total->getGrandTotal() + $fee);
-        $quote->setBaseGrandTotal($total->getBaseGrandTotal() + $fee);
-        
+        if ($this->_getAddress()->getAddressType() == 'shipping') {
+            $fee = $this->calculator->calculate($quote);
+            $total->setTotalAmount('fee', $fee);
+            $total->setBaseTotalAmount('fee', $fee);
+            $total->setFee($fee);
+            $total->setBaseFee($fee);
+            $quote->setFee($fee);
+            $quote->setBaseFee($fee);
+            $quote->setGrandTotal($total->getGrandTotal() + $fee);
+            $quote->setBaseGrandTotal($total->getBaseGrandTotal() + $fee);
+        }
+
         return $this;
     }
 
