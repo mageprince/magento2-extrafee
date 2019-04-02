@@ -3,6 +3,6 @@
 	    <observer name="prince_extrafee_quote_submit_before" instance="Prince\Extrafee\Observer\AfterOrder" />
 	</event>
 	<event name="payment_cart_collect_items_and_amounts">
-        <observer name="prince_extrafee_payment_collect_total" instance="Prince\Extrafee\Observer\AddExtrafeeItem" />
+		<observer name="prince_extrafee_payment_collect_total" instance="Prince\Extrafee\Observer\AddExtrafeeItem" />
     </event>
 </config>
