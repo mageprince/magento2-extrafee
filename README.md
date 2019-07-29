@@ -10,7 +10,7 @@ Magento 2 Add Extra Fee To Order
 
 <b>Configuration Settings</b> 
 
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/configuration.png" alt="admin_Screenshot" border="0"/>
+<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/configuration-new.png" alt="admin_Screenshot" border="0"/>
 
 <b>Cart Page</b>
 
