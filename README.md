@@ -25,7 +25,7 @@ Magento 2 Add Extra Fee To Order
 
 <b><a href="http://demo.mageprince.com/">Frontend</a>   |   <a href="http://demo.mageprince.com/admin">Backend</a></b>
 
-#Screenshot
+# Screenshot
 
 <h3>Configuration</h3>
 <img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/3-configuration.png" heigth="600"/>
