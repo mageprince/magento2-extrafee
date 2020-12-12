@@ -29,7 +29,7 @@ The Extra Fee Pro extension allows the admin to add multiple extra fees that app
 
 # Demo
 
-<b><a href="http://demo.mageprince.com/">Frontend</a>   |   <a href="http://demo.mageprince.com/admin">Backend</a></b>
+<b><a href="http://demo2.mageprince.com/">Frontend</a>   |   <a href="http://demo2.mageprince.com/admin">Backend</a></b>
 
 # Screenshot
 
