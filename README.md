@@ -7,7 +7,7 @@ Magento 2 Add Extra Fee To Order
 
 The Extra Fee Pro extension allows the admin to add multiple extra fees that apply to an order placed by the customers. Create unlimited rules based on various conditions that allow fees to be calculated only after certain conditions are met.
 
-<h3><a href="https://marketplace.magento.com/media/catalog/product/prince-magento2-extrafeepro-1-0-4-ce/user_guides.pdf">User Guide</a></h3>
+<h3><a href="https://marketplace.magento.com/media/catalog/product/prince-magento2-extrafeepro-1-1-5-ce/user_guides.pdf">User Guide</a></h3>
 
 # New Features
 <ul>
@@ -29,33 +29,30 @@ The Extra Fee Pro extension allows the admin to add multiple extra fees that app
 
 # Demo
 
-<b><a href="http://demo2.mageprince.com/">Frontend</a>   |   <a href="http://demo2.mageprince.com/admin">Backend</a></b>
+<b><a href="http://demo.mageprince.com/">Frontend</a>   |   <a href="http://demo.mageprince.com/admin">Backend</a></b>
 
 # Screenshot
 
-<h3>Configuration</h3>
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/configuration.png" heigth="600"/>
-
 <h3>Fontend</h3>
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/10-cart-page.jpg" heigth="600"/>
+<img src="https://marketplace.magento.com/media/catalog/product/6/e/6efc_1_checkout_page.jpg" heigth="600"/>
+
+<h3>Admin Grid</h3>
+<img src="https://marketplace.magento.com/media/catalog/product/c/e/cef7_3_admin_grid.jpg" heigth="600"/>
+
+
+
+<h3>Configuration</h3>
+<img src="https://marketplace.magento.com/media/catalog/product/f/1/f1e3_11_configuration.jpg" heigth="600"/>
 
 <h3>Add ExtraFee - General</h3>
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/1-general-settings.jpg" heigth="600"/>
+<img src="https://marketplace.magento.com/media/catalog/product/f/b/fb81_4_edit_fee_general.jpg" heigth="600"/>
 
 <h3>Add ExtraFee - Fee Settings</h3>
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/3-select-tax-class.jpg" heigth="600"/>
+<img src="https://marketplace.magento.com/media/catalog/product/4/1/41cb_5_edit_fee_setting.jpg" heigth="600"/>
 
 <h3>Add ExtraFee - Conditions</h3>
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/4-select-shipping.jpg" heigth="600"/>
-
-<h3>Add ExtraFee - Category Condition</h3>
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/5-select-category.jpg" heigth="600"/>
-
-<h3>Add ExtraFee - Products Condition</h3>
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/6-select-product.jpg" heigth="600"/>
-
-<h3>Add ExtraFee - Cart Attributes</h3>
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/7-select-product-attributes.jpg" heigth="600"/>
-
-<h3>Add ExtraFee - Store Views, Customer Groups</h3>
-<img src="https://raw.githubusercontent.com/mageprince/all-module-screenshots/master/ExtraFee/8-select-store-customer.jpg" heigth="600"/>
+<img src="https://marketplace.magento.com/media/catalog/product/8/0/808f_10_condition_cart.jpg" heigth="600"/>
+<img src="https://marketplace.magento.com/media/catalog/product/b/a/bac8_7_condition_product_selection.jpg" heigth="600"/>
+<img src="https://marketplace.magento.com/media/catalog/product/8/6/868c_8_condition_product.jpg" heigth="600"/>
+<img src="https://marketplace.magento.com/media/catalog/product/2/0/2062_9_condition_category.jpg" heigth="600"/>
+<img src="https://marketplace.magento.com/media/catalog/product/b/2/b2e9_6_edit_fee_customer_store.jpg" heigth="600"/>
