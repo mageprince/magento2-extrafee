@@ -1,13 +1,13 @@
 # Download Extra Fee Latest modules with 2.4.x support From Magento Marketplace
-# <a href="https://marketplace.magento.com/prince-magento2-extrafeepro.html">Download Extra Fee Pro (For Multiple Fees)</a>
-# <a href="https://marketplace.magento.com/prince-magento2-extrafee.html">Download Extra Fee (For Single Fee)</a>
+# <a href="https://marketplace.magento.com/mageprince-module-extrafee-pro.html">Download Extra Fee Pro (For Multiple Fees)</a>
+# <a href="https://marketplace.magento.com/mageprince-module-extrafee.html">Download Extra Fee (For Single Fee)</a>
 
 Magento 2 Add Extra Fee To Order
 ==============================
 
 The Extra Fee Pro extension allows the admin to add multiple extra fees that apply to an order placed by the customers. Create unlimited rules based on various conditions that allow fees to be calculated only after certain conditions are met.
 
-<h3><a href="https://marketplace.magento.com/media/catalog/product/prince-magento2-extrafeepro-1-1-5-ce/user_guides.pdf">User Guide</a></h3>
+<h3><a href="https://marketplace.magento.com/media/catalog/product/mageprince-module-extrafee-pro-2-1-1-ce/user_guides.pdf">User Guide</a></h3>
 
 # New Features
 <ul>
@@ -24,8 +24,6 @@ The Extra Fee Pro extension allows the admin to add multiple extra fees that app
 <li>Assign extra fee for the specific product, category or product attributes</li>
 <li>Show extra fees on order, invoice, credit memo, sales emails, and PDF</li>
 </ul>
-
-<b>Check full description on <a href="https://marketplace.magento.com/prince-magento2-extrafee.html">Magento Marketplace</a></b>
 
 # Demo
 
