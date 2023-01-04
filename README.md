@@ -32,25 +32,19 @@ The Extra Fee Pro extension allows the admin to add multiple extra fees that app
 # Screenshot
 
 <h3>Fontend</h3>
-<img src="https://marketplace.magento.com/media/catalog/product/6/e/6efc_1_checkout_page.jpg" heigth="600"/>
-
-<h3>Admin Grid</h3>
-<img src="https://marketplace.magento.com/media/catalog/product/c/e/cef7_3_admin_grid.jpg" heigth="600"/>
-
-
-
-<h3>Configuration</h3>
-<img src="https://marketplace.magento.com/media/catalog/product/f/1/f1e3_11_configuration.jpg" heigth="600"/>
+<img src="https://mageprince.com/media/module_screenshots/extrafeepro/1_checkout_page.jpg"/>
 
 <h3>Add ExtraFee - General</h3>
-<img src="https://marketplace.magento.com/media/catalog/product/f/b/fb81_4_edit_fee_general.jpg" heigth="600"/>
+<img src="https://mageprince.com/media/module_screenshots/extrafeepro/4_edit_fee_general.jpg"/>
 
 <h3>Add ExtraFee - Fee Settings</h3>
-<img src="https://marketplace.magento.com/media/catalog/product/4/1/41cb_5_edit_fee_setting.jpg" heigth="600"/>
+<img src="https://mageprince.com/media/module_screenshots/extrafeepro/5_edit_fee_setting.jpg"/>
 
 <h3>Add ExtraFee - Conditions</h3>
-<img src="https://marketplace.magento.com/media/catalog/product/8/0/808f_10_condition_cart.jpg" heigth="600"/>
-<img src="https://marketplace.magento.com/media/catalog/product/b/a/bac8_7_condition_product_selection.jpg" heigth="600"/>
-<img src="https://marketplace.magento.com/media/catalog/product/8/6/868c_8_condition_product.jpg" heigth="600"/>
-<img src="https://marketplace.magento.com/media/catalog/product/2/0/2062_9_condition_category.jpg" heigth="600"/>
-<img src="https://marketplace.magento.com/media/catalog/product/b/2/b2e9_6_edit_fee_customer_store.jpg" heigth="600"/>
+<img src="https://mageprince.com/media/module_screenshots/extrafeepro/7_condition_product_selection.jpg"/>
+<img src="https://mageprince.com/media/module_screenshots/extrafeepro/8_condition_product.jpg"/>
+<img src="https://mageprince.com/media/module_screenshots/extrafeepro/9_condition_category.jpg"/>
+<img src="https://mageprince.com/media/module_screenshots/extrafeepro/10_condition_cart.jpg"/>
+
+<h3>Configuration</h3>
+<img src="https://mageprince.com/media/module_screenshots/extrafeepro/11_configuration.jpg"/>
