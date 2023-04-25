@@ -1,6 +1,5 @@
 # Download Extra Fee Latest modules with 2.4.x support From Magento Marketplace
-# <a href="https://marketplace.magento.com/mageprince-module-extrafee-pro.html">Download Extra Fee Pro (For Multiple Fees)</a>
-# <a href="https://marketplace.magento.com/mageprince-module-extrafee.html">Download Extra Fee (For Single Fee)</a>
+# <a href="https://marketplace.magento.com/mageprince-module-extrafee-pro.html">Download Extra Fee Pro</a>
 
 Magento 2 Add Extra Fee To Order
 ==============================
