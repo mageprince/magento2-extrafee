@@ -31,19 +31,19 @@ The Extra Fee Pro extension allows the admin to add multiple extra fees that app
 # Screenshot
 
 <h3>Fontend</h3>
-<img src="https://mageprince.com/media/module_screenshots/extrafeepro/1_checkout_page.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/3/0/30c7_1_checkout_page_2.jpg"/>
 
 <h3>Add ExtraFee - General</h3>
-<img src="https://mageprince.com/media/module_screenshots/extrafeepro/4_edit_fee_general.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/1/8/1859_4_edit_fee_general_2.jpg"/>
 
 <h3>Add ExtraFee - Fee Settings</h3>
-<img src="https://mageprince.com/media/module_screenshots/extrafeepro/5_edit_fee_setting.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/0/7/070a_5_edit_fee_setting_2.jpg"/>
 
 <h3>Add ExtraFee - Conditions</h3>
-<img src="https://mageprince.com/media/module_screenshots/extrafeepro/7_condition_product_selection.jpg"/>
-<img src="https://mageprince.com/media/module_screenshots/extrafeepro/8_condition_product.jpg"/>
-<img src="https://mageprince.com/media/module_screenshots/extrafeepro/9_condition_category.jpg"/>
-<img src="https://mageprince.com/media/module_screenshots/extrafeepro/10_condition_cart.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/4/0/40f1_9_condition_category_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/3/4/3410_8_condition_product_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/6/f/6f4b_10_condition_cart_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/1/b/1b26_7_condition_product_selection_2.jpg"/>
 
 <h3>Configuration</h3>
-<img src="https://mageprince.com/media/module_screenshots/extrafeepro/11_configuration.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/b/7/b7c8_11_configuration_2.jpg"/>
