@@ -6,7 +6,7 @@ Magento 2 Add Extra Fee To Order
 
 The Extra Fee Pro extension allows the admin to add multiple extra fees that apply to an order placed by the customers. Create unlimited rules based on various conditions that allow fees to be calculated only after certain conditions are met.
 
-<h3><a href="https://marketplace.magento.com/media/catalog/product/mageprince-module-extrafee-pro-2-1-1-ce/user_guides.pdf">User Guide</a></h3>
+<h3><a href="https://commercemarketplace.adobe.com/media/catalog/product/mageprince-module-extrafee-pro-2-1-6-ece/user_guides.pdf">User Guide</a></h3>
 
 # New Features
 <ul>
@@ -28,22 +28,16 @@ The Extra Fee Pro extension allows the admin to add multiple extra fees that app
 
 <b><a href="http://demo.mageprince.com/">Frontend</a>   |   <a href="http://demo.mageprince.com/admin">Backend</a></b>
 
-# Screenshot
+# Extension Screenshots
 
-<h3>Fontend</h3>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/3/0/30c7_1_checkout_page_2.jpg"/>
-
-<h3>Add ExtraFee - General</h3>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/1/8/1859_4_edit_fee_general_2.jpg"/>
-
-<h3>Add ExtraFee - Fee Settings</h3>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/0/7/070a_5_edit_fee_setting_2.jpg"/>
-
-<h3>Add ExtraFee - Conditions</h3>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/4/0/40f1_9_condition_category_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/3/4/3410_8_condition_product_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/6/f/6f4b_10_condition_cart_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/1/b/1b26_7_condition_product_selection_2.jpg"/>
-
-<h3>Configuration</h3>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/b/7/b7c8_11_configuration_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/9/8/9861_1_checkout_page_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/2/4/24c3_11_configuration_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/c/b/cb19_4_edit_fee_general_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/7/5/7513_5_edit_fee_setting_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/b/2/b2ed_6_edit_fee_customer_store_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/2/f/2f1b_9_condition_category_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/3/a/3af7_8_condition_product_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/b/8/b85d_10_condition_cart_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/c/1/c109_7_condition_product_selection_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/2/f/2fab_2_menu_2.jpg"/>
+<img src="https://commercemarketplace.adobe.com/media/catalog/product/1/2/12ef_3_admin_grid_2.jpg"/>
