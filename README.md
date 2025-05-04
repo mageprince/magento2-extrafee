@@ -1,43 +1,42 @@
-# Download Extra Fee Latest modules with 2.4.x support From Magento Marketplace
-# <a href="https://marketplace.magento.com/mageprince-module-extrafee-pro.html">Download Extra Fee Pro</a>
+# Magento 2 Extra Fee Pro Extension
 
-Magento 2 Add Extra Fee To Order
-==============================
+The Extra Fee Pro extension enables store admins to add multiple additional charges to customer orders. It allows the creation of unlimited rules based on flexible conditions, ensuring that extra fees are applied only when specific criteria are met.
 
-The Extra Fee Pro extension allows the admin to add multiple extra fees that apply to an order placed by the customers. Create unlimited rules based on various conditions that allow fees to be calculated only after certain conditions are met.
+### <a href="https://marketplace.magento.com/mageprince-module-extrafee-pro.html">Download Extra Fee Pro</a>
 
-<h3><a href="https://commercemarketplace.adobe.com/media/catalog/product/mageprince-module-extrafee-pro-2-1-6-ece/user_guides.pdf">User Guide</a></h3>
+### <a href="https://github.com/user-attachments/files/20026531/extrafeepro_user_guides.pdf">User Guide</a>
 
-# New Features
-<ul>
-<li>Apply extra fee for a specific store and customer group</li>
-<li>Enable or disable refund of extra fees</li>
-<li>Appy extra fee on admin order creation</li>
-<li>Support multi-currency and multi-store</li>
-<li>Support tax calculation on the extra fees</li>
-<li>Allow admin to select tax class for the extra fees</li>
-<li>Admin can set the sort order of extra fee</li>
-<li>Create multiple carts and product attributes conditions </li>
-<li>Assign extra fee for specific shipping method</li>
-<li>Create a condition for specific postcode, region, state and country</li>
-<li>Assign extra fee for the specific product, category or product attributes</li>
-<li>Show extra fees on order, invoice, credit memo, sales emails, and PDF</li>
-</ul>
+# ✨ Key Features
 
-# Demo
+- Enable or disable the extension from admin configuration
+- Choose fee type: Fixed amount or Percentage-based
+- Apply extra fees based on specific store views and customer groups
+- Option to enable or disable refunds for extra fees
+- Apply extra fees during admin order creation
+- Fully supports multi-currency and multi-store environments
+- Supports tax calculation on extra fees with configurable tax class selection
+- Choose how to display extra fees: Inclusive, Exclusive, or Both tax formats
+- Define sort order for displaying multiple extra fees
+- Create flexible conditions using cart and product attributes
+- Assign extra fees to specific shipping methods
+- Define rules based on postcode, region, state, or country
+- Apply fees to specific products, categories, or product attributes
+- Display extra fees in order summaries, invoices, credit memos, sales emails, and PDFs
+- Fully compatible with Hyvä theme
+
+# 📺 Demo
 
 <b><a href="http://demo.mageprince.com/">Frontend</a>   |   <a href="http://demo.mageprince.com/admin">Backend</a></b>
 
-# Extension Screenshots
+# 📸 Extension Screenshots
 
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/9/8/9861_1_checkout_page_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/2/4/24c3_11_configuration_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/c/b/cb19_4_edit_fee_general_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/7/5/7513_5_edit_fee_setting_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/b/2/b2ed_6_edit_fee_customer_store_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/2/f/2f1b_9_condition_category_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/3/a/3af7_8_condition_product_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/b/8/b85d_10_condition_cart_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/c/1/c109_7_condition_product_selection_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/2/f/2fab_2_menu_2.jpg"/>
-<img src="https://commercemarketplace.adobe.com/media/catalog/product/1/2/12ef_3_admin_grid_2.jpg"/>
+![1_checkout_page](https://github.com/user-attachments/assets/4f1dc560-c0c6-40a1-bea4-30dc10fc852f)
+![3_admin_grid](https://github.com/user-attachments/assets/925af9ed-41e9-45dd-94fb-4f5eda803ef4)
+![4_edit_fee_general](https://github.com/user-attachments/assets/a9c1b364-7aaa-4fb1-9d22-28ced78b015d)
+![5_edit_fee_setting](https://github.com/user-attachments/assets/c4e55584-67c5-418f-9ec2-7bd15857c7c5)
+![6_edit_fee_customer_store](https://github.com/user-attachments/assets/7767d4e3-d878-4926-ae3e-d551bffee215)
+![7_condition_product_selection](https://github.com/user-attachments/assets/37005141-9868-4486-90b7-5ba87c95e619)
+![8_condition_product](https://github.com/user-attachments/assets/b13b3e9c-ac57-444f-83f6-029dd46fcc14)
+![9_condition_category](https://github.com/user-attachments/assets/1117c11b-ef43-47ca-8b8f-c269e4c7a9c1)
+![10_condition_cart](https://github.com/user-attachments/assets/27b5e26a-4feb-4812-a063-67c2050b83b0)
+![11_configuration](https://github.com/user-attachments/assets/3ec4f65c-efa2-4aad-a599-4c4ef105957a)
