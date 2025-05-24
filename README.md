@@ -2,7 +2,13 @@
 
 The Extra Fee extension enables store admins to add additional charge to customer order. It allows the creation of unlimited rules based on flexible conditions, ensuring that extra fee are applied only when specific criteria are met.
 
-### ⚠️ Note: This extension supports only a single extra fee. If you need to apply multiple extra fees based on flexible rules and conditions, check out the <a href="https://commercemarketplace.adobe.com/mageprince-module-extrafee-pro.html">Mageprince Extra Fee Pro</a> extension.
+#### ⚠️ Note: This extension supports only a single extra fee. If you need to apply multiple extra fees based on flexible rules and conditions, check out the <a href="https://commercemarketplace.adobe.com/mageprince-module-extrafee-pro.html">Mageprince Extra Fee Pro</a> extension.
+
+# ✅ Compatibility
+
+<b>Magento Open Source:</b> 2.3.x - 2.4.x </br>
+<b>Adobe Commerce (on-prem):</b> 2.3.x - 2.4.x </br>
+<b>Adobe Commerce (cloud)</b>: 2.3.x - 2.4.x </br>
 
 # ✨ Key Features
 
