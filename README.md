@@ -1,15 +1,12 @@
-# Magento 2 Extra Fee Pro Extension
+# Magento 2 Extra Fee
 
-The Extra Fee Pro extension enables store admins to add multiple additional charges to customer orders. It allows the creation of unlimited rules based on flexible conditions, ensuring that extra fees are applied only when specific criteria are met.
+The Extra Fee extension enables store admins to add additional charge to customer order. It allows the creation of unlimited rules based on flexible conditions, ensuring that extra fee are applied only when specific criteria are met.
 
-### <a href="https://marketplace.magento.com/mageprince-module-extrafee-pro.html">Download Extra Fee Pro</a>
-
-### <a href="https://github.com/user-attachments/files/20026531/extrafeepro_user_guides.pdf">User Guide</a>
+### ⚠️ Note: This extension supports only a single extra fee. If you need to apply multiple extra fees based on flexible rules and conditions, check out the <a href="https://commercemarketplace.adobe.com/mageprince-module-extrafee-pro.html">Mageprince Extra Fee Pro</a> extension.
 
 # ✨ Key Features
 
 - Enable or disable the extension from admin configuration
-- Choose fee type: Fixed amount or Percentage-based
 - Apply extra fees based on specific store views and customer groups
 - Option to enable or disable refunds for extra fees
 - Apply extra fees during admin order creation
@@ -22,21 +19,58 @@ The Extra Fee Pro extension enables store admins to add multiple additional char
 - Define rules based on postcode, region, state, or country
 - Apply fees to specific products, categories, or product attributes
 - Display extra fees in order summaries, invoices, credit memos, sales emails, and PDFs
-- Fully compatible with Hyvä theme
 
-# 📺 Demo
+# 🚀 Installation Instructions
 
-<b><a href="http://demo.mageprince.com/">Frontend</a>   |   <a href="http://demo.mageprince.com/admin">Backend</a></b>
+### 1. Install via composer (Recommended)
 
-# 📸 Extension Screenshots
+Run the following Magento CLI commands:
 
-![1_checkout_page](https://github.com/user-attachments/assets/4f1dc560-c0c6-40a1-bea4-30dc10fc852f)
-![3_admin_grid](https://github.com/user-attachments/assets/925af9ed-41e9-45dd-94fb-4f5eda803ef4)
-![4_edit_fee_general](https://github.com/user-attachments/assets/a9c1b364-7aaa-4fb1-9d22-28ced78b015d)
-![5_edit_fee_setting](https://github.com/user-attachments/assets/c4e55584-67c5-418f-9ec2-7bd15857c7c5)
-![6_edit_fee_customer_store](https://github.com/user-attachments/assets/7767d4e3-d878-4926-ae3e-d551bffee215)
-![7_condition_product_selection](https://github.com/user-attachments/assets/37005141-9868-4486-90b7-5ba87c95e619)
-![8_condition_product](https://github.com/user-attachments/assets/b13b3e9c-ac57-444f-83f6-029dd46fcc14)
-![9_condition_category](https://github.com/user-attachments/assets/1117c11b-ef43-47ca-8b8f-c269e4c7a9c1)
-![10_condition_cart](https://github.com/user-attachments/assets/27b5e26a-4feb-4812-a063-67c2050b83b0)
-![11_configuration](https://github.com/user-attachments/assets/3ec4f65c-efa2-4aad-a599-4c4ef105957a)
+```
+composer require mageprince/magento2-extrafee
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy
+```
+
+### 2. Manual Installation
+
+Copy the content of the repo to the Magento 2 `app/code/Mageprince/Extrafee`
+
+Run the following Magento CLI commands:
+```
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy
+```
+
+# 🤝 Contribution
+
+Want to contribute to this extension? The quickest way is to <a href="https://help.github.com/articles/about-pull-requests/">open a pull request</a> on GitHub.
+
+# 🛠 Support
+
+If you encounter any problems or bugs, please <a href="https://github.com/mageprince/magento2-extrafee/issues">open an issue</a> on GitHub.
+
+# 📸 Screenshots
+
+![1_checkout](https://github.com/user-attachments/assets/14f0dd39-ee15-4e6e-9b46-caa976a6fbbb)
+![2_configuration_general](https://github.com/user-attachments/assets/c44062b8-3ee3-4911-a167-52af965737e8)
+![3_configuration_fee](https://github.com/user-attachments/assets/44df80a2-e86c-4815-8a05-6a9267db075e)
+![4_configuration_tax](https://github.com/user-attachments/assets/ba3d226c-545e-47b1-9df9-66719a88269f)
+![5_menu](https://github.com/user-attachments/assets/4e4525b6-c7cc-4427-b0b6-394bb12c9324)
+![6_conditions](https://github.com/user-attachments/assets/71c4062b-e3dc-486f-bd98-e1c9e1d87f16)
+![7_condition_cart_attribute](https://github.com/user-attachments/assets/86000edc-9c0f-49eb-ab85-4fed4df36d34)
+![8_condition_product_attributes](https://github.com/user-attachments/assets/fdf7b546-86f3-4570-a412-d157f3206b31)
+![9_condition_product](https://github.com/user-attachments/assets/43ba4392-dec6-465c-a24e-9760ec4683fb)
+![10_condition_category](https://github.com/user-attachments/assets/124e6516-afd1-45ea-8045-8c1ff8abfb91)
+
+
+
+
+
+
+
+
+
+
