@@ -1,0 +1,57 @@
+<!-- ko if: isDisplayed() -->
+<!-- ko if: isTaxEnabled -->
+<!-- ko if: displayBoth -->
+<tr class="totals extrafee excl">
+    <th class="mark" scope="row">
+        <span class="label" data-bind="text: title + ' Excl. Tax'"></span>
+    </th>
+    <td class="amount">
+        <span class="price" data-bind="text: getExtraFeeExclTax(), attr: {'data-th': title}"></span>
+    </td>
+</tr>
+<tr class="totals extrafee incl">
+    <th class="mark" scope="row">
+        <span class="label" data-bind="text: title + ' Incl. Tax'"></span>
+    </th>
+    <td class="amount">
+        <span class="price" data-bind="text: getExtraFeeInclTax(), attr: {'data-th': title}"></span>
+    </td>
+</tr>
+<!-- /ko -->
+<!-- ko ifnot: displayBoth -->
+<!-- ko if: displayExclTax -->
+<tr class="totals opc-block-summary extrafee excl">
+    <th class="mark" scope="row">
+        <span class="label" data-bind="text: title"></span>
+        <span class="value" data-bind="i18n: description"></span>
+    </th>
+    <td class="amount">
+        <span class="price" data-bind="text: getExtraFeeExclTax(), attr: {'data-th': title}"></span>
+    </td>
+</tr>
+<!-- /ko -->
+<!-- ko if: displayInclTax -->
+<tr class="totals opc-block-summary extrafee incl">
+    <th class="mark" scope="row">
+        <span class="label" data-bind="text: title"></span>
+        <span class="value" data-bind="i18n: description"></span>
+    </th>
+    <td class="amount">
+        <span class="price" data-bind="text: getExtraFeeInclTax(), attr: {'data-th': title}"></span>
+    </td>
+</tr>
+<!-- /ko -->
+<!-- /ko -->
+<!-- /ko -->
+<!-- ko ifnot: isTaxEnabled -->
+<tr class="totals opc-block-summary extrafee">
+    <th class="mark" scope="row">
+        <span class="label" data-bind="text: title"></span>
+        <span class="value" data-bind="i18n: description"></span>
+    </th>
+    <td class="amount">
+        <span class="price" data-bind="text: getValue(), attr: {'data-th': title}"></span>
+    </td>
+</tr>
+<!-- /ko -->
+<!-- /ko -->

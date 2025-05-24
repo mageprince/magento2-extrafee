@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MagePrince
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageprince.com license that is
+ * available through the world-wide-web at this URL:
+ * https://mageprince.com/end-user-license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_Extrafee
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://mageprince.com/end-user-license-agreement
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <extrafee>
+            <general>
+                <active>1</active>
+                <title>Extra Fee</title>
+            </general>
+            <fee_config>
+                <pricetype>0</pricetype>
+                <include_shipping>0</include_shipping>
+                <include_discount>0</include_discount>
+                <price>10</price>
+                <refund>1</refund>
+                <total_sortorder>35</total_sortorder>
+                <customer_group>0,1,2,3</customer_group>
+            </fee_config>
+            <tax>
+                <enable>0</enable>
+                <tax_class>2</tax_class>
+                <display>2</display>
+            </tax>
+        </extrafee>
+        <sales>
+            <totals_sort>
+                <mageprince_extrafee>35</mageprince_extrafee>
+            </totals_sort>
+        </sales>
+    </default>
+</config>

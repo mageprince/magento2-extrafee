@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote" resource="checkout" comment="Sales Flat Quote">
+        <column xsi:type="decimal" name="fee" scale="4" precision="12" nullable="true" default="0" comment="Extra Fee"/>
+        <column xsi:type="decimal" name="base_fee" scale="4" precision="12" nullable="true" default="0" comment="Base Extra Fee"/>
+        <column xsi:type="decimal" name="fee_tax" scale="4" precision="12" nullable="true" default="0" comment="Extra Fee Tax"/>
+        <column xsi:type="decimal" name="base_fee_tax" scale="4" precision="12" nullable="true" default="0" comment="Base Extra Fee Tax"/>
+    </table>
+    <table name="quote_address" resource="checkout" comment="Sales Flat Quote Address">
+        <column xsi:type="decimal" name="fee" scale="4" precision="12" nullable="true" default="0" comment="Extra Fee"/>
+        <column xsi:type="decimal" name="base_fee" scale="4" precision="12" nullable="true" default="0" comment="Base Extra Fee"/>
+        <column xsi:type="decimal" name="fee_tax" scale="4" precision="12" nullable="true" default="0" comment="Extra Fee Tax"/>
+        <column xsi:type="decimal" name="base_fee_tax" scale="4" precision="12" nullable="true" default="0" comment="Base Extra Fee Tax"/>
+    </table>
+    <table name="sales_order" resource="sales" comment="Sales Flat Order">
+        <column xsi:type="decimal" name="fee" scale="4" precision="12" nullable="true" default="0" comment="Extra Fee"/>
+        <column xsi:type="decimal" name="base_fee" scale="4" precision="12" nullable="true" default="0" comment="Base Extra Fee"/>
+        <column xsi:type="decimal" name="fee_tax" scale="4" precision="12" nullable="true" default="0" comment="Extra Fee Tax"/>
+        <column xsi:type="decimal" name="base_fee_tax" scale="4" precision="12" nullable="true" default="0" comment="Base Extra Fee Tax"/>
+    </table>
+    <table name="sales_invoice" resource="sales" comment="Sales Flat Order">
+        <column xsi:type="decimal" name="fee" scale="4" precision="12" nullable="true" default="0" comment="Extra Fee"/>
+        <column xsi:type="decimal" name="base_fee" scale="4" precision="12" nullable="true" default="0" comment="Base Extra Fee"/>
+        <column xsi:type="decimal" name="fee_tax" scale="4" precision="12" nullable="true" default="0" comment="Extra Fee Tax"/>
+        <column xsi:type="decimal" name="base_fee_tax" scale="4" precision="12" nullable="true" default="0" comment="Base Extra Fee Tax"/>
+    </table>
+    <table name="sales_creditmemo" resource="sales" comment="Sales Flat Order">
+        <column xsi:type="decimal" name="fee" scale="4" precision="12" nullable="true" default="0" comment="Extra Fee"/>
+        <column xsi:type="decimal" name="base_fee" scale="4" precision="12" nullable="true" default="0" comment="Base Extra Fee"/>
+        <column xsi:type="decimal" name="fee_tax" scale="4" precision="12" nullable="true" default="0" comment="Extra Fee Tax"/>
+        <column xsi:type="decimal" name="base_fee_tax" scale="4" precision="12" nullable="true" default="0" comment="Base Extra Fee Tax"/>
+    </table>
+</schema>

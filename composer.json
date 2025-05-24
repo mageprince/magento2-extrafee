@@ -1,0 +1,25 @@
+{
+    "name": "mageprince/module-extrafee",
+    "description": "Magento 2 Add Extra Fee To Order",
+    "homepage": "https://github.com/mageprince/magento2-extrafee",
+    "type": "magento2-module",
+    "version": "3.0.0",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Mageprince",
+            "email": "contact@mageprince.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/mageprince/magento2-extrafee/issues"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mageprince\\Extrafee\\": ""
+        }
+    }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * MagePrince
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageprince.com license that is
+ * available through the world-wide-web at this URL:
+ * https://mageprince.com/end-user-license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_Extrafee
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://mageprince.com/end-user-license-agreement
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="sales_model_service_quote_submit_before">
+	    <observer name="mageprince_extrafee_quote_submit_before" instance="Mageprince\Extrafee\Observer\AfterOrder" />
+	</event>
+	<event name="checkout_type_multishipping_create_orders_single">
+	    <observer name="mageprince_extrafee_checkout_submit_all_after" instance="Mageprince\Extrafee\Observer\AfterOrder" />
+	</event>
+	<event name="payment_cart_collect_items_and_amounts">
+		<observer name="mageprince_extrafee_payment_collect_total" instance="Mageprince\Extrafee\Observer\AddExtrafeeItem" />
+	</event>
+</config>
