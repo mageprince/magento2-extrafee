@@ -23,37 +23,24 @@ namespace Mageprince\Extrafee\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Checkout\Model\Session as CheckoutSession;
-use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\Exception\NoSuchEntityException;
 
 class AddExtrafeeItem implements ObserverInterface
 {
     /**
-     * @var CheckoutSession
-     */
-    private $checkoutSession;
-
-    /**
-     * AddExtrafeeItem constructor.
-     * @param CheckoutSession $checkoutSession
-     */
-    public function __construct(CheckoutSession $checkoutSession)
-    {
-        $this->checkoutSession = $checkoutSession;
-    }
-
-    /**
      * Add custom amount as custom item to payment cart totals
      *
      * @param Observer $observer
-     * @throws LocalizedException
-     * @throws NoSuchEntityException
+     * @return void
      */
     public function execute(Observer $observer)
     {
         $cart = $observer->getCart();
-        $quote = $this->checkoutSession->getQuote();
-        $cart->addCustomItem(__('Extra Fee'), 1, $quote->getBaseFee(), 'extrafee');
+        $baseFee = (float) $cart->getSalesModel()->getDataUsingMethod('base_fee');
+
+        if (!$baseFee) {
+            return;
+        }
+
+        $cart->addCustomItem(__('Extra Fee'), 1, $baseFee, 'extrafee');
     }
 }

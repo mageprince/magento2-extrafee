@@ -22,6 +22,7 @@
 namespace Mageprince\Extrafee\Block\Sales;
 
 use Magento\Framework\DataObjectFactory;
+use Magento\Framework\View\Element\AbstractBlock;
 use Magento\Framework\View\Element\Template;
 use Mageprince\Extrafee\Helper\Data;
 
@@ -80,6 +81,10 @@ class Totals extends Template
             return $this;
         }
 
+        if ($this->isAlreadyAdded($parent)) {
+            return $this;
+        }
+
         $extraFeeTitle = $this->helper->getTitle($storeId);
 
         $extraFeeExclTax = $source->getFee();
@@ -102,21 +107,28 @@ class Totals extends Template
             'label' => $extraFeeTitle,
         ];
 
-        if ($this->helper->displayExclTax($storeId) && $this->helper->displayInclTax($storeId)) {
+        $displayExclTax = $this->helper->displayExclTax($storeId);
+        $displayInclTax = $this->helper->displayInclTax($storeId);
+
+        if ($displayExclTax && $displayInclTax && $extraFeeInclTax == $extraFeeExclTax) {
+            $displayInclTax = false;
+        }
+
+        if ($displayExclTax && $displayInclTax) {
             $inclTxt = __('Incl. Tax');
             $exclTxt = __('Excl. Tax');
             $extraFeeInclTaxTotal['label'] .= ' ' . $inclTxt;
             $extraFeeExclTaxTotal['label'] .= ' ' . $exclTxt;
         }
 
-        if ($this->helper->displayExclTax($storeId)) {
+        if ($displayExclTax) {
             $parent->addTotal(
                 $this->dataObjectFactory->create()->setData($extraFeeExclTaxTotal),
                 'shipping'
             );
         }
 
-        if ($this->helper->displayInclTax($storeId)) {
+        if ($displayInclTax) {
             $parent->addTotal(
                 $this->dataObjectFactory->create()->setData($extraFeeInclTaxTotal),
                 'shipping'
@@ -124,5 +136,22 @@ class Totals extends Template
         }
 
         return $this;
+    }
+
+    /**
+     * Check the fee rows are already on the parent totals block
+     *
+     * @param AbstractBlock|null $parent
+     * @return bool
+     */
+    protected function isAlreadyAdded($parent)
+    {
+        if (!$parent || !method_exists($parent, 'getTotals')) {
+            return false;
+        }
+
+        $totals = $parent->getTotals();
+
+        return is_array($totals) && (isset($totals['fee']) || isset($totals['fee_incl_tax']));
     }
 }

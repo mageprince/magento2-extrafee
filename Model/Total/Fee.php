@@ -32,6 +32,16 @@ use Mageprince\Extrafee\Model\Calculation\Calculator\CalculatorInterface;
 class Fee extends Address\Total\AbstractTotal
 {
     /**
+     * Amount of fee tax this collector last folded into the shared tax total
+     */
+    public const APPLIED_TAX = 'mageprince_extrafee_applied_tax';
+
+    /**
+     * Base amount of fee tax this collector last folded into the shared tax total
+     */
+    public const APPLIED_BASE_TAX = 'mageprince_extrafee_applied_base_tax';
+
+    /**
      * @var FeeHelper
      */
     protected $helper;
@@ -90,12 +100,9 @@ class Fee extends Address\Total\AbstractTotal
     ) {
         parent::collect($quote, $shippingAssignment, $total);
 
-        $total->setTotalAmount($this->getCode(), 0);
-        $total->setBaseTotalAmount($this->getCode(), 0);
-        $total->setTotalAmount('fee_tax', 0);
-        $total->setBaseTotalAmount('base_fee_tax', 0);
+        $this->resetAmounts($total);
 
-        if (!count($shippingAssignment->getItems())) {
+        if (!$this->isApplicable($quote, $shippingAssignment)) {
             return $this;
         }
 
@@ -106,8 +113,7 @@ class Fee extends Address\Total\AbstractTotal
 
         if ($this->helper->isEnable() && $this->validateAddress($quote)) {
             $baseFee = $this->calculator->calculate($total, $quote);
-            $quoteRate = $quote->getBaseToQuoteRate();
-            $fee = $baseFee * $quoteRate;
+            $fee = $baseFee * $this->getBaseToQuoteRate($quote);
 
             if ($this->helper->isTaxEnabled()) {
                 $taxClassId = $this->helper->getTaxClassId();
@@ -129,12 +135,73 @@ class Fee extends Address\Total\AbstractTotal
         $total->setFeeTax($tax);
         $total->addBaseTotalAmount('tax', $baseTax);
         $total->addTotalAmount('tax', $tax);
+        $total->setData(self::APPLIED_BASE_TAX, $baseTax);
+        $total->setData(self::APPLIED_TAX, $tax);
         $quote->setFee($fee);
         $quote->setBaseFee($baseFee);
         $quote->setFeeTax($tax);
         $quote->setBaseFeeTax($baseTax);
 
         return $this;
+    }
+
+    /**
+     * Clear every amount a previous pass of this collector left on the total
+     *
+     * @param Address\Total $total
+     * @return void
+     */
+    protected function resetAmounts(Address\Total $total)
+    {
+        $appliedTax = (float) $total->getData(self::APPLIED_TAX);
+        $appliedBaseTax = (float) $total->getData(self::APPLIED_BASE_TAX);
+        if ($appliedTax) {
+            $total->addTotalAmount('tax', -$appliedTax);
+        }
+        if ($appliedBaseTax) {
+            $total->addBaseTotalAmount('tax', -$appliedBaseTax);
+        }
+
+        $total->setData(self::APPLIED_TAX, 0);
+        $total->setData(self::APPLIED_BASE_TAX, 0);
+        $total->setTotalAmount($this->getCode(), 0);
+        $total->setBaseTotalAmount($this->getCode(), 0);
+        $total->setTotalAmount('fee_tax', 0);
+        $total->setBaseTotalAmount('fee_tax', 0);
+        $total->setFee(0);
+        $total->setBaseFee(0);
+        $total->setFeeTax(0);
+        $total->setBaseFeeTax(0);
+    }
+
+    /**
+     * Check the collector is running against the address the order is built from
+     *
+     * @param Quote $quote
+     * @param ShippingAssignmentInterface $shippingAssignment
+     * @return bool
+     */
+    protected function isApplicable(Quote $quote, ShippingAssignmentInterface $shippingAssignment)
+    {
+        if (!count($shippingAssignment->getItems())) {
+            return false;
+        }
+
+        $address = $shippingAssignment->getShipping()->getAddress();
+        $expectedType = $quote->isVirtual() ? Address::TYPE_BILLING : Address::TYPE_SHIPPING;
+        if ($address->getAddressType() && $address->getAddressType() != $expectedType) {
+            return false;
+        }
+
+        // Multishipping builds one order per shipping address, each with its own totals.
+        if ($quote->getIsMultiShipping()) {
+            return true;
+        }
+
+        $orderAddress = $quote->isVirtual() ? $quote->getBillingAddress() : $quote->getShippingAddress();
+        $orderAddressId = $orderAddress ? $orderAddress->getId() : null;
+
+        return !($orderAddressId && $address->getId() && (int) $address->getId() !== (int) $orderAddressId);
     }
 
     /**
@@ -180,6 +247,21 @@ class Fee extends Address\Total\AbstractTotal
     protected function getAddressFromQuote(Quote $quote)
     {
         return $quote->isVirtual() ? $quote->getBillingAddress() : $quote->getShippingAddress();
+    }
+
+    /**
+     * Get base to quote currency rate
+     *
+     * @param Quote $quote
+     * @return float
+     */
+    protected function getBaseToQuoteRate(Quote $quote)
+    {
+        $rate = (float) $quote->getBaseToQuoteRate();
+        if ($rate <= 0) {
+            $rate = (float) $quote->getStore()->getCurrentCurrencyRate();
+        }
+        return $rate > 0 ? $rate : 1.0;
     }
 
     /**
@@ -235,8 +317,14 @@ class Fee extends Address\Total\AbstractTotal
         }
         $address->setCollectShippingRates(true);
         //$address->collectShippingRates(); //Fix infinite loop
-        $address->setData('total_qty', $quote->getData('items_qty'));
-        $address->setData('base_subtotal', $quote->getData('base_subtotal'));
+
+        if ($address->getTotalQty() === null) {
+            $address->setData('total_qty', $quote->getData('items_qty'));
+        }
+        if ($address->getBaseSubtotal() === null) {
+            $address->setData('base_subtotal', $quote->getData('base_subtotal'));
+        }
+
         if ($salesRule->validate($address)) {
             $valid = true;
         }
