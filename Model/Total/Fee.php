@@ -106,8 +106,7 @@ class Fee extends Address\Total\AbstractTotal
 
         if ($this->helper->isEnable() && $this->validateAddress($quote)) {
             $baseFee = $this->calculator->calculate($total, $quote);
-            $quoteRate = $quote->getBaseToQuoteRate();
-            $fee = $baseFee * $quoteRate;
+            $fee = $baseFee * $this->getBaseToQuoteRate($quote);
 
             if ($this->helper->isTaxEnabled()) {
                 $taxClassId = $this->helper->getTaxClassId();
@@ -183,6 +182,25 @@ class Fee extends Address\Total\AbstractTotal
     }
 
     /**
+     * Get base to quote currency rate
+     *
+     * Quote::beforeSave() is what puts base_to_quote_rate on the quote, but Cart::save()
+     * collects the totals before saving, so the rate is still empty while a brand new quote
+     * is collected for the first time. Fall back to the store rate to avoid zeroing the fee.
+     *
+     * @param Quote $quote
+     * @return float
+     */
+    protected function getBaseToQuoteRate(Quote $quote)
+    {
+        $rate = (float) $quote->getBaseToQuoteRate();
+        if ($rate <= 0) {
+            $rate = (float) $quote->getStore()->getCurrentCurrencyRate();
+        }
+        return $rate > 0 ? $rate : 1.0;
+    }
+
+    /**
      * Get tax request for quote address
      *
      * @param Quote $quote
@@ -235,8 +253,21 @@ class Fee extends Address\Total\AbstractTotal
         }
         $address->setCollectShippingRates(true);
         //$address->collectShippingRates(); //Fix infinite loop
-        $address->setData('total_qty', $quote->getData('items_qty'));
-        $address->setData('base_subtotal', $quote->getData('base_subtotal'));
+
+        /**
+         * Subtotal (sort order 100) already put the freshly collected figures on the address
+         * before this collector (sort order 500) runs. The quote level values are aggregated
+         * by Quote::collectTotals() only after every collector has finished, so here they still
+         * hold the previous request data and must not overwrite the address. They are kept as a
+         * fallback for a quote validated outside of a totals collection.
+         */
+        if ($address->getTotalQty() === null) {
+            $address->setData('total_qty', $quote->getData('items_qty'));
+        }
+        if ($address->getBaseSubtotal() === null) {
+            $address->setData('base_subtotal', $quote->getData('base_subtotal'));
+        }
+
         if ($salesRule->validate($address)) {
             $valid = true;
         }
