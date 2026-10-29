@@ -1,0 +1,35 @@
+<?php
+/**
+ * MagePrince
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageprince.com license that is
+ * available through the world-wide-web at this URL:
+ * https://mageprince.com/end-user-license-agreement
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    MagePrince
+ * @package     Mageprince_Extrafee
+ * @copyright   Copyright (c) MagePrince (https://mageprince.com/)
+ * @license     https://mageprince.com/end-user-license-agreement
+ */
+
+/** @var \Mageprince\Extrafee\Block\Adminhtml\Sales\Order\Creditmemo\RefundFee $block */
+?>
+<tr>
+    <td class="label">
+        <?= $block->escapeHtml($block->getLabel()) ?>
+    </td>
+    <td>
+        <input type="text"
+               name="<?= $block->escapeHtmlAttr($block->getInputName()) ?>"
+               value="<?= $block->escapeHtmlAttr($block->getFeeAmount()) ?>"
+               class="input-text admin__control-text not-negative-amount"
+               id="mageprince_extrafee_amount" />
+    </td>
+</tr>

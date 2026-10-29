@@ -36,7 +36,7 @@ class Info extends Fieldset
     {
         //@codingStandardsIgnoreStart
         $html = '<div class="mageprince-info" style="margin-bottom: 20px;"><span class="message success">';
-        $html .= 'Please check pro version <a target="_blank" href="https://marketplace.magento.com/mageprince-module-extrafee-pro.html">Extra Fee Pro</a> to add multiple extra fees.';
+        $html .= 'One fee not enough? <a target="_blank" href="https://marketplace.magento.com/mageprince-module-extrafee-pro.html">Extra Fee Pro</a> supports multiple fees with independent rules per fee.';
         $html .= '</span></div>';
         return $html;
         // @codingStandardsIgnoreEnd
