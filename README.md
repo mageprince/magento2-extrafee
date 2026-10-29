@@ -1,14 +1,20 @@
 # Magento 2 Extra Fee
 
+<p>
+<a href="https://packagist.org/packages/mageprince/magento2-extrafee"><img src="https://img.shields.io/packagist/v/mageprince/magento2-extrafee?style=for-the-badge&logo=packagist&logoColor=F28D1A&label=packagist&color=2F7FC1" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/mageprince/magento2-extrafee/stats"><img src="https://img.shields.io/packagist/dt/mageprince/magento2-extrafee?style=for-the-badge&logo=packagist&logoColor=white&label=downloads&color=D4B53A" alt="Total Downloads"></a>
+<a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/license-GPL--3.0-232F3E?style=for-the-badge" alt="License: GPL-3.0"></a>
+<a href="https://business.adobe.com/products/magento/magento-commerce.html"><img src="https://img.shields.io/badge/magento-2.4-6CB83A?style=for-the-badge" alt="Magento 2.4"></a>
+<a href="https://www.hyva.io/"><img src="https://img.shields.io/badge/hyv%C3%A4-compatible-0A1A3F?style=for-the-badge" alt="Hyvä compatible"></a>
+<a href="https://mage-os.org/"><img src="https://img.shields.io/badge/mage--os-compatible-F26322?style=for-the-badge" alt="Mage-OS compatible"></a>
+</p>
+
 The Extra Fee extension enables store admins to add additional charge to customer order. It allows the creation of unlimited rules based on flexible conditions, ensuring that extra fee are applied only when specific criteria are met.
 
 #### ⚠️ Note: This extension supports only a single extra fee. If you need to apply multiple extra fees based on flexible rules and conditions, check out the <a href="https://commercemarketplace.adobe.com/mageprince-module-extrafee-pro.html">Mageprince Extra Fee Pro</a> extension.
 
-# ✅ Compatibility
-
-<b>Magento Open Source:</b> 2.3.x - 2.4.x </br>
-<b>Adobe Commerce (on-prem):</b> 2.3.x - 2.4.x </br>
-<b>Adobe Commerce (cloud)</b>: 2.3.x - 2.4.x </br>
+<img src="https://github.com/hyva-themes.png?size=40" height="20" align="top" alt="Hyvä"/> **Hyvä Theme compatible** – works out of the box on Hyvä, no compat module needed.<br/>
+<img src="https://github.com/mage-os.png?size=40" height="20" align="top" alt="Mage-OS"/> **Mage-OS compatible** – supports Mage-OS as well as Magento Open Source and Adobe Commerce.
 
 # ✨ Key Features
 
