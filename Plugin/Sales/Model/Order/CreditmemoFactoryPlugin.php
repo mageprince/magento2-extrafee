@@ -35,6 +35,11 @@ class CreditmemoFactoryPlugin
     public const FEE_AMOUNT = 'fee_amount';
 
     /**
+     * Refund arguments extension attribute holding the extra fee amount to refund (REST refund endpoints)
+     */
+    public const API_FEE_AMOUNT = 'extrafee_amount';
+
+    /**
      * @var FormatInterface
      */
     protected $localeFormat;
@@ -88,9 +93,12 @@ class CreditmemoFactoryPlugin
      */
     protected function setRefundAmount(Order $order, array $data)
     {
-        $amount = isset($data[self::FEE_AMOUNT])
-            ? (float) $this->localeFormat->getNumber($data[self::FEE_AMOUNT])
-            : null;
+        $amount = null;
+        if (isset($data[self::FEE_AMOUNT])) {
+            $amount = (float) $this->localeFormat->getNumber($data[self::FEE_AMOUNT]);
+        } elseif (isset($data['extension_attributes'][self::API_FEE_AMOUNT])) {
+            $amount = (float) $data['extension_attributes'][self::API_FEE_AMOUNT];
+        }
         $order->setData(Fee::REFUND_AMOUNT, $amount);
     }
 }

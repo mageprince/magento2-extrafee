@@ -23,5 +23,23 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
     <extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
         <attribute code="extrafee" type="string" />
+        <attribute code="base_extrafee" type="float" />
+        <attribute code="extrafee_tax" type="float" />
+        <attribute code="base_extrafee_tax" type="float" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\InvoiceInterface">
+        <attribute code="extrafee" type="float" />
+        <attribute code="base_extrafee" type="float" />
+        <attribute code="extrafee_tax" type="float" />
+        <attribute code="base_extrafee_tax" type="float" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\CreditmemoInterface">
+        <attribute code="extrafee" type="float" />
+        <attribute code="base_extrafee" type="float" />
+        <attribute code="extrafee_tax" type="float" />
+        <attribute code="base_extrafee_tax" type="float" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\CreditmemoCreationArgumentsInterface">
+        <attribute code="extrafee_amount" type="float" />
     </extension_attributes>
 </config>
