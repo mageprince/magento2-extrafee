@@ -89,6 +89,11 @@ class DefaultConfig
     public const XML_PATH_EXTRAFEE_CONDITIONS = 'extrafee/fee_config/conditions';
 
     /**
+     * Apply fee for whole cart or matching cart items config path
+     */
+    public const XML_PATH_APPLY_FOR = 'extrafee/fee_config/apply_for';
+
+    /**
      * Klarna payment methods
      */
     public const KLARNA_METHODS = [

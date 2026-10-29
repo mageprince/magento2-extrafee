@@ -29,6 +29,7 @@
             </general>
             <fee_config>
                 <pricetype>0</pricetype>
+                <apply_for>0</apply_for>
                 <include_shipping>0</include_shipping>
                 <include_discount>0</include_discount>
                 <price>10</price>

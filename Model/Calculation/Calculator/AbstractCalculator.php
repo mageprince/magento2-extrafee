@@ -21,7 +21,11 @@
 
 namespace Mageprince\Extrafee\Model\Calculation\Calculator;
 
+use Magento\Quote\Model\Quote;
+use Magento\Quote\Model\Quote\Item\AbstractItem;
 use Mageprince\Extrafee\Helper\Data as FeeHelper;
+use Mageprince\Extrafee\Model\Calculation\ItemMatcher;
+use Mageprince\Extrafee\Model\Config\Source\ApplyFor;
 
 abstract class AbstractCalculator implements CalculatorInterface
 {
@@ -31,12 +35,40 @@ abstract class AbstractCalculator implements CalculatorInterface
     protected $_helper;
 
     /**
+     * @var ItemMatcher
+     */
+    protected $itemMatcher;
+
+    /**
      * AbstractCalculation constructor.
      *
      * @param FeeHelper $helper
+     * @param ItemMatcher $itemMatcher
      */
-    public function __construct(FeeHelper $helper)
+    public function __construct(FeeHelper $helper, ItemMatcher $itemMatcher)
     {
         $this->_helper = $helper;
+        $this->itemMatcher = $itemMatcher;
+    }
+
+    /**
+     * Check if fee is applied for matching cart items only
+     *
+     * @return bool
+     */
+    protected function isApplyForMatchingItems()
+    {
+        return $this->_helper->getApplyFor() === ApplyFor::MATCHING_ITEMS;
+    }
+
+    /**
+     * Get cart items matching the fee conditions
+     *
+     * @param Quote $quote
+     * @return AbstractItem[]
+     */
+    protected function getMatchingItems(Quote $quote)
+    {
+        return $this->itemMatcher->getMatchingItems($quote);
     }
 }

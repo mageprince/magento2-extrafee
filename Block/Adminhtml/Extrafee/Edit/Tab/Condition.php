@@ -29,6 +29,7 @@ use Magento\Framework\Data\FormFactory;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Registry;
 use Magento\Rule\Block\Conditions as BlockConditions;
+use Mageprince\Extrafee\Model\Config\Source\ApplyFor;
 
 class Condition extends Generic implements TabInterface
 {
@@ -43,12 +44,18 @@ class Condition extends Generic implements TabInterface
     protected $_blockConditions;
 
     /**
+     * @var ApplyFor
+     */
+    protected $applyFor;
+
+    /**
      * Condition constructor.
      * @param Context $context
      * @param Registry $registry
      * @param FormFactory $formFactory
      * @param Fieldset $rendererFieldset
      * @param BlockConditions $blockConditions
+     * @param ApplyFor $applyFor
      * @param array $data
      */
     public function __construct(
@@ -57,10 +64,12 @@ class Condition extends Generic implements TabInterface
         FormFactory $formFactory,
         Fieldset $rendererFieldset,
         BlockConditions $blockConditions,
+        ApplyFor $applyFor,
         array $data = []
     ) {
         $this->_rendererFieldset = $rendererFieldset;
         $this->_blockConditions = $blockConditions;
+        $this->applyFor = $applyFor;
         parent::__construct($context, $registry, $formFactory, $data);
     }
 
@@ -113,6 +122,27 @@ class Condition extends Generic implements TabInterface
         $rule = $this->_coreRegistry->registry('mageprince_extrafee_rule');
 
         $form->setHtmlIdPrefix('rule_');
+
+        $applyFieldset = $form->addFieldset(
+            'apply_fieldset',
+            ['legend' => __('Fee Application')]
+        );
+
+        $applyFieldset->addField(
+            'apply_fee_for',
+            'select',
+            [
+                'name' => 'apply_fee_for',
+                'label' => __('Apply Fees for'),
+                'title' => __('Apply Fees for'),
+                'values' => $this->applyFor->toOptionArray(),
+                'value' => (int) $rule->getData('apply_fee_for'),
+                'note' => __(
+                    'Matching Cart Items Only calculates the fee from the cart items '
+                    . 'that match the product conditions below.'
+                )
+            ]
+        );
 
         $renderer = $this->getLayout()->createBlock(Fieldset::class);
         $renderer->setTemplate(

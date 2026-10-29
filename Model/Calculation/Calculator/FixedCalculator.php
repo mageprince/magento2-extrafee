@@ -31,6 +31,10 @@ class FixedCalculator extends AbstractCalculator
      */
     public function calculate(Total $total, Quote $quote)
     {
+        if ($this->isApplyForMatchingItems() && !$this->getMatchingItems($quote)) {
+            return 0.0;
+        }
+
         $storeId = $quote->getStoreId();
         return $this->_helper->getExtraFee($storeId);
     }
