@@ -42,14 +42,9 @@ class Data extends AbstractHelper
     protected $state;
 
     /**
-     * @var null|mixed
+     * @var array
      */
-    protected $feeConditions = null;
-
-    /**
-     * @var bool
-     */
-    protected $feeConditionFlag = false;
+    protected $uncachedConfig = [];
 
     /**
      * Data constructor.
@@ -251,25 +246,44 @@ class Data extends AbstractHelper
     /**
      * Get uncached extra fee conditions
      *
-     * @param string $path
-     * @param string $scope
-     * @param int $scopeId
      * @return mixed
      */
     public function getExtraFeeConditions()
     {
-        if ($this->feeConditionFlag) {
-            return $this->feeConditions;
+        return $this->getUncachedConfig(DefaultConfig::XML_PATH_EXTRAFEE_CONDITIONS);
+    }
+
+    /**
+     * Get uncached apply fee for value
+     *
+     * @return int
+     */
+    public function getApplyFor()
+    {
+        return (int) $this->getUncachedConfig(DefaultConfig::XML_PATH_APPLY_FOR);
+    }
+
+    /**
+     * Get default scope config value bypassing the config cache
+     *
+     * @param string $path
+     * @return mixed
+     */
+    protected function getUncachedConfig($path)
+    {
+        if (array_key_exists($path, $this->uncachedConfig)) {
+            return $this->uncachedConfig[$path];
         }
+        $value = null;
         $configDataCollection = $this->configDataCollection->create();
         $configDataCollection->addFieldToFilter('scope', 'default');
         $configDataCollection->addFieldToFilter('scope_id', 0);
-        $configDataCollection->addFieldToFilter('path', DefaultConfig::XML_PATH_EXTRAFEE_CONDITIONS);
+        $configDataCollection->addFieldToFilter('path', $path);
         if ($configDataCollection->count() !== 0) {
-            $this->feeConditions = $configDataCollection->getFirstItem()->getValue();
+            $value = $configDataCollection->getFirstItem()->getValue();
         }
-        $this->feeConditionFlag = true;
-        return $this->feeConditions;
+        $this->uncachedConfig[$path] = $value;
+        return $value;
     }
 
     /**

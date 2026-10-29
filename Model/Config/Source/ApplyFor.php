@@ -19,20 +19,28 @@
  * @license     https://mageprince.com/end-user-license-agreement
  */
 
-namespace Mageprince\Extrafee\Model\Calculation\Calculator;
+namespace Mageprince\Extrafee\Model\Config\Source;
 
-use Magento\Quote\Model\Quote;
-use Magento\Quote\Model\Quote\Address\Total;
+use Magento\Framework\Data\OptionSourceInterface;
 
-class PerRowCalculator extends AbstractCalculator
+class ApplyFor implements OptionSourceInterface
 {
     /**
-     * @inheritdoc
+     * Apply fee for variants
      */
-    public function calculate(Total $total, Quote $quote)
+    public const WHOLE_CART = 0;
+    public const MATCHING_ITEMS = 1;
+
+    /**
+     * Options getter
+     *
+     * @return array
+     */
+    public function toOptionArray()
     {
-        $storeId = $quote->getStoreId();
-        $fee = $this->_helper->getExtraFee($storeId);
-        return $fee * \count($quote->getAllVisibleItems());
+        return [
+            ['value' => self::WHOLE_CART, 'label' => __('Whole Cart')],
+            ['value' => self::MATCHING_ITEMS, 'label' => __('Matching Cart Items Only')]
+        ];
     }
 }

@@ -19,20 +19,17 @@
  * @license     https://mageprince.com/end-user-license-agreement
  */
 
-namespace Mageprince\Extrafee\Model\Calculation\Calculator;
-
-use Magento\Quote\Model\Quote\Address\Total;
-use Magento\Quote\Model\Quote;
-
-class PerItemCalculator extends AbstractCalculator
-{
-    /**
-     * @inheritdoc
-     */
-    public function calculate(Total $total, Quote $quote)
-    {
-        $storeId = $quote->getStoreId();
-        $fee = $this->_helper->getExtraFee($storeId);
-        return $fee * $quote->getItemsQty();
-    }
-}
+/** @var \Mageprince\Extrafee\Block\Adminhtml\Sales\Order\Creditmemo\RefundFee $block */
+?>
+<tr>
+    <td class="label">
+        <?= $block->escapeHtml($block->getLabel()) ?>
+    </td>
+    <td>
+        <input type="text"
+               name="<?= $block->escapeHtmlAttr($block->getInputName()) ?>"
+               value="<?= $block->escapeHtmlAttr($block->getFeeAmount()) ?>"
+               class="input-text admin__control-text not-negative-amount"
+               id="mageprince_extrafee_amount" />
+    </td>
+</tr>

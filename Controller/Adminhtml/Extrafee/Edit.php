@@ -81,6 +81,7 @@ class Edit extends Action
     {
         $conditions = $this->feeHelper->getExtraFeeConditions();
         $rule = $this->getSalesRule($conditions);
+        $rule->setData('apply_fee_for', $this->feeHelper->getApplyFor());
 
         $this->coreRegistry->register('mageprince_extrafee_rule', $rule);
 

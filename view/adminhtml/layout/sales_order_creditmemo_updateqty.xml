@@ -22,8 +22,8 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="creditmemo_totals">
-            <block class="Mageprince\Extrafee\Block\Sales\Totals" name="mageprince_extrafee_creditmemo"/>
-        </referenceContainer>
+        <referenceBlock name="creditmemo_totals">
+            <block class="Mageprince\Extrafee\Block\Adminhtml\Sales\Order\Creditmemo\RefundFee" name="mageprince_extrafee_creditmemo"/>
+        </referenceBlock>
     </body>
 </page>

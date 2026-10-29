@@ -21,10 +21,10 @@
 
 namespace Mageprince\Extrafee\Plugin;
 
-use Magento\Sales\Api\Data\OrderExtensionFactory;
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Api\Data\OrderSearchResultInterface;
 use Magento\Sales\Api\OrderRepositoryInterface;
+use Mageprince\Extrafee\Model\Sales\FeeExtensionAttributes;
 
 class OrderRepositoryPlugin
 {
@@ -34,59 +34,47 @@ class OrderRepositoryPlugin
     public const FIELD_NAME = 'fee';
 
     /**
-     * Order Extension Attributes Factory
-     *
-     * @var OrderExtensionFactory
+     * @var FeeExtensionAttributes
      */
-    protected $extensionFactory;
+    protected $feeExtensionAttributes;
 
     /**
      * OrderRepositoryPlugin constructor
      *
-     * @param OrderExtensionFactory $extensionFactory
+     * @param FeeExtensionAttributes $feeExtensionAttributes
      */
-    public function __construct(OrderExtensionFactory $extensionFactory)
+    public function __construct(FeeExtensionAttributes $feeExtensionAttributes)
     {
-        $this->extensionFactory = $extensionFactory;
+        $this->feeExtensionAttributes = $feeExtensionAttributes;
     }
 
     /**
-     * Add "extrafee" extension attribute to order data object to make it accessible in API data
+     * Add extra fee extension attributes to order data object to make them accessible in API data
      *
      * @param OrderRepositoryInterface $subject
      * @param OrderInterface $order
-     *
      * @return OrderInterface
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterGet(OrderRepositoryInterface $subject, OrderInterface $order)
     {
-        $extraFee = $order->getData(self::FIELD_NAME);
-        $extensionAttributes = $order->getExtensionAttributes();
-        $extensionAttributes = $extensionAttributes ? $extensionAttributes : $this->extensionFactory->create();
-        $extensionAttributes->setExtrafee($extraFee);
-        $order->setExtensionAttributes($extensionAttributes);
+        $this->feeExtensionAttributes->apply($order);
 
         return $order;
     }
 
     /**
-     * Add "extrafee" extension attribute to order data object to make it accessible in API data
+     * Add extra fee extension attributes to order data objects to make them accessible in API data
      *
      * @param OrderRepositoryInterface $subject
      * @param OrderSearchResultInterface $searchResult
-     *
      * @return OrderSearchResultInterface
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterGetList(OrderRepositoryInterface $subject, OrderSearchResultInterface $searchResult)
     {
-        $orders = $searchResult->getItems();
-
-        foreach ($orders as &$order) {
-            $extraFee = $order->getData(self::FIELD_NAME);
-            $extensionAttributes = $order->getExtensionAttributes();
-            $extensionAttributes = $extensionAttributes ? $extensionAttributes : $this->extensionFactory->create();
-            $extensionAttributes->setExtrafee($extraFee);
-            $order->setExtensionAttributes($extensionAttributes);
+        foreach ($searchResult->getItems() as $order) {
+            $this->feeExtensionAttributes->apply($order);
         }
 
         return $searchResult;

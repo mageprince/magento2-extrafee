@@ -25,6 +25,18 @@
     <type name="Magento\Sales\Api\OrderRepositoryInterface">
         <plugin name="mageprince_extrafee_order_extension_attribute" type="Mageprince\Extrafee\Plugin\OrderRepositoryPlugin" />
     </type>
+    <type name="Magento\Sales\Api\InvoiceRepositoryInterface">
+        <plugin name="mageprince_extrafee_invoice_extension_attribute"
+                type="Mageprince\Extrafee\Plugin\InvoiceRepositoryPlugin" />
+    </type>
+    <type name="Magento\Sales\Api\CreditmemoRepositoryInterface">
+        <plugin name="mageprince_extrafee_creditmemo_extension_attribute"
+                type="Mageprince\Extrafee\Plugin\CreditmemoRepositoryPlugin" />
+    </type>
+    <type name="Magento\Sales\Model\Order\CreditmemoFactory">
+        <plugin name="mageprince_extrafee_creditmemo_refund_amount"
+                type="Mageprince\Extrafee\Plugin\Sales\Model\Order\CreditmemoFactoryPlugin"/>
+    </type>
     <type name="Klarna\Kp\Model\Api\Request\Builder">
         <plugin name="mageprince_extrafee_klarna_request_builder"
                 type="Mageprince\Extrafee\Plugin\Klarna\Model\Api\Request\BuilderPlugin"/>

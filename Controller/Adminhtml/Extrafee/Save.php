@@ -27,6 +27,7 @@ use Magento\Framework\App\Config\Storage\WriterInterface;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Mageprince\Extrafee\Model\Config\DefaultConfig;
+use Mageprince\Extrafee\Model\Config\Source\ApplyFor;
 use Magento\SalesRule\Model\Rule;
 
 class Save extends Action
@@ -79,6 +80,12 @@ class Save extends Action
             $this->writerInterface->save(
                 DefaultConfig::XML_PATH_EXTRAFEE_CONDITIONS,
                 $conditionSerialized
+            );
+
+            $applyFor = (int) ($data['apply_fee_for'] ?? ApplyFor::WHOLE_CART);
+            $this->writerInterface->save(
+                DefaultConfig::XML_PATH_APPLY_FOR,
+                $applyFor === ApplyFor::MATCHING_ITEMS ? ApplyFor::MATCHING_ITEMS : ApplyFor::WHOLE_CART
             );
 
             $this->messageManager->addSuccessMessage(__('You saved extra Fee conditions.'));
